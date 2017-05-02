@@ -1,5 +1,5 @@
 # README #
-
+Eric Barber
 This is for DVP3 course with Prof. Oberndorf. I will be preforming several coding assignments as well as committing the code that need
 to be created
 
