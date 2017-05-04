@@ -1,9 +1,9 @@
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\bin\Debug\BarberEric_CE01.exe.config
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\bin\Debug\BarberEric_CE01.exe
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\bin\Debug\BarberEric_CE01.pdb
-\\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\obj\Debug\BarberEric_CE01.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\obj\Debug\BarberEric_CE01.GroceryList.resources
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\obj\Debug\BarberEric_CE01.Properties.Resources.resources
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\obj\Debug\BarberEric_CE01.csproj.GenerateResource.Cache
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\obj\Debug\BarberEric_CE01.exe
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\obj\Debug\BarberEric_CE01.pdb
+\\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE01\obj\Debug\BarberEric_CE01.csprojResolveAssemblyReference.cache

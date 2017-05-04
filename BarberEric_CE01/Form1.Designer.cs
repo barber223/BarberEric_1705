@@ -34,25 +34,29 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtItem = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.needCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.haveCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listNeed = new System.Windows.Forms.ListBox();
+            this.listHave = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.listHave);
+            this.groupBox1.Controls.Add(this.listNeed);
             this.groupBox1.Controls.Add(this.btnRemove);
             this.groupBox1.Controls.Add(this.btnMove);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.txtItem);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(0, 59);
             this.groupBox1.Name = "groupBox1";
@@ -70,6 +74,7 @@
             this.btnRemove.TabIndex = 5;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnMove
             // 
@@ -110,31 +115,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Item to add:";
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.needCol,
-            this.haveCol});
-            this.listView1.Location = new System.Drawing.Point(287, 30);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(601, 586);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
-            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
-            // 
-            // needCol
-            // 
-            this.needCol.Text = "NEED";
-            this.needCol.Width = 280;
-            // 
-            // haveCol
-            // 
-            this.haveCol.Text = "HAVE";
-            this.haveCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.haveCol.Width = 280;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -169,6 +149,44 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(246, 38);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
+            // listNeed
+            // 
+            this.listNeed.FormattingEnabled = true;
+            this.listNeed.ItemHeight = 25;
+            this.listNeed.Location = new System.Drawing.Point(323, 67);
+            this.listNeed.Name = "listNeed";
+            this.listNeed.Size = new System.Drawing.Size(250, 554);
+            this.listNeed.TabIndex = 10;
+            // 
+            // listHave
+            // 
+            this.listHave.FormattingEnabled = true;
+            this.listHave.ItemHeight = 25;
+            this.listHave.Location = new System.Drawing.Point(592, 67);
+            this.listHave.Name = "listHave";
+            this.listHave.Size = new System.Drawing.Size(296, 554);
+            this.listHave.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(316, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 37);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "NEED:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(585, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 37);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "HAVE:";
+            // 
             // GroceryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -190,9 +208,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader needCol;
-        private System.Windows.Forms.ColumnHeader haveCol;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
@@ -202,6 +217,10 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listHave;
+        private System.Windows.Forms.ListBox listNeed;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

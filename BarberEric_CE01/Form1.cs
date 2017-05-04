@@ -23,71 +23,66 @@ namespace BarberEric_CE01
 
         private void btnAdd_Click ( object sender,EventArgs e )
         {
-            
-
-            ListViewItem/*.ListViewSubItem*/ it = new ListViewItem ( );//.ListViewSubItem ( );
-
-            it.Text = txtItem.Text;
-
-            listView1.Items.Add (  it);//.SubItems.Add ( item );
-
-            //listView1.Items[0].SubItems.Add (  "please" );
-
-
-            //MessageBox.Show ( listView1.Items[0].ToString ( ) );
-
-
+          listNeed.Items.Add ( txtItem.Text);
         }
 
         private void btnMove_Click ( object sender,EventArgs e )
         {
-            if (index != -1)
+          
+         if (listHave.SelectedItems != null)
             {
-                /*
-                if (listView1.Items[0].SubItems.Contains ( listView1.Items[0].SubItems[index] ))
+                for (int i = 0; i < listHave.Items.Count; i++)
                 {
-
-                    for (int i = 0; i < listView1.Items[0].SubItems.Count; i++)
-                    {
-                        if (listView1.Items[0].SubItems[index] == listView1.Items[0].SubItems[i])
-                        {
-
-                            MessageBox.Show ( listView1.Items[0].SubItems[index].Text );
-
-                            listView1.Items[1].SubItems.Add ( listView1.Items[0].SubItems[index] );
-                            listView1.Items[0].SubItems.Remove ( listView1.Items[0].SubItems[index] );
-
-
-                            //MessageBox.Show ( "did it recognize" );
-                        }
-
+                    if (listHave.SelectedItem == listHave.Items[i])
+                    { 
+                        listNeed.Items.Add (listHave.Items[i] );
+                        listHave.Items.Remove ( listHave.Items[i] );
                     }
-                    */
-
-
                 }
-
-                else if (listView1.Items[1].SubItems.Contains ( listView1.Items[1].SubItems[index] ))
-                {
-
-                }
-
-
-
-                //MessageBox.Show ( "working" );
-                index = -1;
             }
+           if (listNeed.SelectedItems != null)
+            {
+                for (int i = 0; i < listNeed.Items.Count; i++)
+                {
+                    if (listNeed.Items[i] == listNeed.SelectedItem)
+                    {
+
+                        listHave.Items.Add ( listNeed.Items[i] );
+                        listNeed.Items.Remove ( listNeed.SelectedItem );
+                    }
+                } 
+            }
+        }
         
 
-        private void listView1_MouseDoubleClick ( object sender,MouseEventArgs e )
+       
+        private void listView1_MouseClick ( object sender,MouseEventArgs e )
         {
-            index = listView1.Items.IndexOf ( listView1.SelectedItems[0]);
             
         }
 
-        private void listView1_MouseClick ( object sender,MouseEventArgs e )
+        private void btnRemove_Click ( object sender,EventArgs e )
         {
-            index = listView1.Items.IndexOf ( listView1.SelectedItems[0] );
+            if (listNeed.SelectedItem != null)
+            {
+              for (int i = 0; i < listNeed.Items.Count; i++)
+                {
+                    if (listNeed.Items[i] == listNeed.SelectedItem)
+                    {
+                        listNeed.Items.Remove ( listNeed.SelectedItem );
+                    }
+                }
+            }
+            else if (listHave.SelectedItem != null) 
+            {
+                for (int i = 0; i < listNeed.Items.Count; i++)
+                {
+                    if (listHave.Items[i] == listHave.SelectedItem)
+                    {
+                        listHave.Items.Remove ( listHave.Items[i] );
+                    }
+                }
+            }
         }
     }
 }
