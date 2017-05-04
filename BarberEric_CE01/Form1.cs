@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace BarberEric_CE01
 {
@@ -24,12 +25,13 @@ namespace BarberEric_CE01
         private void btnAdd_Click ( object sender,EventArgs e )
         {
           listNeed.Items.Add ( txtItem.Text);
+            txtItem.Clear ( );
         }
 
         private void btnMove_Click ( object sender,EventArgs e )
         {
           
-         if (listHave.SelectedItems != null)
+         if (listHave.SelectedIndex != -1)
             {
                 for (int i = 0; i < listHave.Items.Count; i++)
                 {
@@ -39,8 +41,9 @@ namespace BarberEric_CE01
                         listHave.Items.Remove ( listHave.Items[i] );
                     }
                 }
+                listHave.ClearSelected ( );
             }
-           if (listNeed.SelectedItems != null)
+           if (listNeed.SelectedIndex != -1)
             {
                 for (int i = 0; i < listNeed.Items.Count; i++)
                 {
@@ -50,37 +53,94 @@ namespace BarberEric_CE01
                         listHave.Items.Add ( listNeed.Items[i] );
                         listNeed.Items.Remove ( listNeed.SelectedItem );
                     }
-                } 
+                }
+                listNeed.ClearSelected ( );
             }
         }
         
 
        
-        private void listView1_MouseClick ( object sender,MouseEventArgs e )
-        {
-            
-        }
+       
 
         private void btnRemove_Click ( object sender,EventArgs e )
         {
-            if (listNeed.SelectedItem != null)
+            if (listNeed.SelectedIndex != -1)
             {
-              for (int i = 0; i < listNeed.Items.Count; i++)
-                {
-                    if (listNeed.Items[i] == listNeed.SelectedItem)
-                    {
-                        listNeed.Items.Remove ( listNeed.SelectedItem );
-                    }
-                }
+                listNeed.Items.Remove ( listNeed.SelectedItem );
+                listNeed.ClearSelected ( );
+
             }
-            else if (listHave.SelectedItem != null) 
+            else if (listHave.SelectedIndex != -1) 
             {
-                for (int i = 0; i < listNeed.Items.Count; i++)
+                listHave.Items.Remove(listHave.SelectedItem);
+                listHave.ClearSelected ( );
+            }
+        }
+
+        private void listNeed_SelectedIndexChanged ( object sender,EventArgs e )
+        {
+            txtItem.Text = listNeed.Text;
+        }
+
+        private void listHave_SelectedIndexChanged ( object sender,EventArgs e )
+        {
+            txtItem.Text = listNeed.Text;
+        }
+
+        private void exitToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            Application.Exit ( );
+        }
+
+        private void saveToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            Stream myStream;   // set the stream
+            SaveFileDialog saveFile = new SaveFileDialog ( );  //
+            saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFile.FilterIndex = 2;
+            saveFile.RestoreDirectory = true;
+
+            if (saveFile.ShowDialog ( ) == DialogResult.OK)
+            {
+                if ((myStream = saveFile.OpenFile ( )) != null)
                 {
-                    if (listHave.Items[i] == listHave.SelectedItem)
+                    using (TextWriter files = new StreamWriter ( myStream ))
                     {
-                        listHave.Items.Remove ( listHave.Items[i] );
+                        //TextWriter files;
+                        string needBox= "";
+                        string HaveBox = "";
+                        string saveString = "";
+
+                        for (int i = 0; i < listNeed.Items.Count; i++)
+                        {
+                            if (i < listNeed.Items.Count-1)
+                            {
+                                needBox += ($"{listNeed.Items[i]}|");
+                            }
+                            else if (i == listNeed.Items.Count-1)
+                            {
+                                needBox += ($"{listNeed.Items[i]}");
+                            }
+                        }
+                        for (int i = 0; i < listHave.Items.Count; i++)
+                        {
+                            if (i < listHave.Items.Count-1)
+                            {
+                                HaveBox += ($"{listHave.Items[i]}|");
+                            }
+                            else if (i == listHave.Items.Count-1) 
+                            {
+                                HaveBox += ($"{listHave.Items[i]}");
+                            }
+                        }
+
+                        saveString = needBox + "#" + HaveBox;
+
+
+
+                        files.Write ( saveString );
                     }
+                    myStream.Close ( ); // Closes the file
                 }
             }
         }

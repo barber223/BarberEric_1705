@@ -29,6 +29,10 @@
         private void InitializeComponent ( )
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.listHave = new System.Windows.Forms.ListBox();
+            this.listNeed = new System.Windows.Forms.ListBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnMove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -38,10 +42,6 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listNeed = new System.Windows.Forms.ListBox();
-            this.listHave = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,46 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(585, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 37);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "HAVE:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(316, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 37);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "NEED:";
+            // 
+            // listHave
+            // 
+            this.listHave.FormattingEnabled = true;
+            this.listHave.ItemHeight = 25;
+            this.listHave.Location = new System.Drawing.Point(592, 67);
+            this.listHave.Name = "listHave";
+            this.listHave.Size = new System.Drawing.Size(296, 554);
+            this.listHave.TabIndex = 11;
+            this.listHave.SelectedIndexChanged += new System.EventHandler(this.listHave_SelectedIndexChanged);
+            // 
+            // listNeed
+            // 
+            this.listNeed.FormattingEnabled = true;
+            this.listNeed.ItemHeight = 25;
+            this.listNeed.Location = new System.Drawing.Point(323, 67);
+            this.listNeed.Name = "listNeed";
+            this.listNeed.Size = new System.Drawing.Size(250, 554);
+            this.listNeed.TabIndex = 10;
+            this.listNeed.SelectedIndexChanged += new System.EventHandler(this.listNeed_SelectedIndexChanged);
             // 
             // btnRemove
             // 
@@ -122,7 +162,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(900, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(900, 42);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -132,60 +172,24 @@
             this.saveToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(246, 38);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(246, 38);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
             this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // listNeed
-            // 
-            this.listNeed.FormattingEnabled = true;
-            this.listNeed.ItemHeight = 25;
-            this.listNeed.Location = new System.Drawing.Point(323, 67);
-            this.listNeed.Name = "listNeed";
-            this.listNeed.Size = new System.Drawing.Size(250, 554);
-            this.listNeed.TabIndex = 10;
-            // 
-            // listHave
-            // 
-            this.listHave.FormattingEnabled = true;
-            this.listHave.ItemHeight = 25;
-            this.listHave.Location = new System.Drawing.Point(592, 67);
-            this.listHave.Name = "listHave";
-            this.listHave.Size = new System.Drawing.Size(296, 554);
-            this.listHave.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(316, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 37);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "NEED:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(585, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 37);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "HAVE:";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // GroceryList
             // 
