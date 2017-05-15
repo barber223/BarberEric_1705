@@ -16,11 +16,19 @@ namespace BarberEric_CE02
 {
     public partial class Form1 : Form
     {
+        /*
+        Eric Barber
+        Section 00
+        DVP03
+        CE02
+        */
+
+            //created a connection if i wanted to do a sql and installed the packages
         MySqlConnection conn = new MySqlConnection ( );
         string firstName = "";
         string lastName = "";
         UserInfo info;
-
+        int test;
         public Form1 ( )
         {
             InitializeComponent ( );
@@ -29,74 +37,6 @@ namespace BarberEric_CE02
         private void exitToolStripMenuItem_Click ( object sender,EventArgs e )
         {
             Application.Exit ( );
-        }
-
-        private void button3_Click ( object sender,EventArgs e )
-        {
-         
-           string phoneNumber;
-            string email;
-            
-           string[] nums = new string[] {"1","2","3","4","5","6","7","8","9","0" };
-            ListViewItem lv = new ListViewItem ( );
-            UserInfo data = new UserInfo ( );
-
-            for (int i = 0; i < nums.Length; i++)
-            {
-
-                if (string.IsNullOrWhiteSpace ( txtFirstName.Text ) || txtFirstName.Text.Contains ( nums[i] ))
-                {
-                    MessageBox.Show ( "Please don't enter numbers" );
-                    break;
-                }
-                if (i == nums.Length-1)
-                {
-                    firstName = txtFirstName.Text;
-                }
-               
-            }
-            for (int i = 0; i < nums.Length; i++)
-            {
-
-                if (string.IsNullOrWhiteSpace ( txtLastName.Text ) || txtLastName.Text.Contains ( nums[i] ))
-                {
-                    MessageBox.Show ( "Please don't enter numbers" );
-                    break;
-                }
-                if (i == nums.Length-1)
-                {
-                    lastName = txtLastName.Text;
-                }
-
-            }
-            string Name = firstName + " " + lastName;
-
-            lv.Text = Name;
-
-            int areaCode;
-            int first3;
-            int last4;
-
-            int.TryParse ( txtArea.Text,out areaCode );
-            int.TryParse ( txtPhone1.Text,out first3 );
-            int.TryParse ( txtphone2.Text,out last4 );
-
-
-            phoneNumber = areaCode +" "+ first3 +" "+ last4;
-
-            lv.SubItems.Add ( phoneNumber.ToString() );
-            email = txtemail1.Text + "@" + txtemail2.Text + cmbextension.Text;
-
-            lv.SubItems.Add ( email );
-
-            
-            lv.ImageIndex = 0;
-
-            lvUsers.Items.Add ( lv );
-
-            ClearInputs ( );
-
-
         }
 
         private void lvUsers_MouseDoubleClick ( object sender,MouseEventArgs e )
@@ -124,22 +64,27 @@ namespace BarberEric_CE02
                 string[] arrayEmail = new string[5];
                 char[] splitType =new char [2]{ '@' , '.'};
 
+                try {
+                    arrayEmail = email.Split ( splitType );
 
-                arrayEmail = email.Split ( splitType );
-
-                txtemail1.Text = arrayEmail[0];
-                txtemail2.Text = arrayEmail[1];
-                if (arrayEmail[2] == "net")
-                {
-                    cmbextension.Text = ".net";
+                    txtemail1.Text = arrayEmail[0];
+                    txtemail2.Text = arrayEmail[1];
+                    if (arrayEmail[2] == "net")
+                    {
+                        cmbextension.Text = ".net";
+                    }
+                    else if (arrayEmail[2] == "com")
+                    {
+                        cmbextension.Text = ".com";
+                    }
+                    else if (arrayEmail[2] == "edu")
+                    {
+                        cmbextension.Text = ".edu";
+                    }
                 }
-                else if (arrayEmail[2] == "com")
+                catch(Exception r )
                 {
-                    cmbextension.Text = ".com";
-                }
-                else if (arrayEmail[2] == "edu")
-                {
-                    cmbextension.Text = ".edu";
+                    MessageBox.Show ( "Email could not be loaded: {0}", r.ToString() );
                 }
 
 
@@ -148,74 +93,7 @@ namespace BarberEric_CE02
 
         private void button2_Click ( object sender,EventArgs e )
         {
-            for (int i = 0; i < lvUsers.Items.Count; i++)
-            {
-                if (firstName +" "+lastName == lvUsers.Items[i].Text)
-                {
-                    string phoneNumber;
-                    string email;
-                    
 
-                    string[] nums = new string[] { "1","2","3","4","5","6","7","8","9","0" };
-                    
-
-                    for (int k = 0; k < nums.Length; k++)
-                    {
-
-                        if (string.IsNullOrWhiteSpace ( txtFirstName.Text ) || txtFirstName.Text.Contains ( nums[i] ))
-                        {
-                            MessageBox.Show ( "Please don't enter numbers" );
-                            break;
-                        }
-                        if (k == nums.Length - 1)
-                        {
-                            firstName = txtFirstName.Text;
-                        }
-
-                    }
-                    for (int k = 0; k < nums.Length; k++)
-                    {
-
-                        if (string.IsNullOrWhiteSpace ( txtLastName.Text ) || txtLastName.Text.Contains ( nums[i] ))
-                        {
-                            MessageBox.Show ( "Please don't enter numbers" );
-                            break;
-                        }
-                        if (k == nums.Length - 1)
-                        {
-                            lastName = txtLastName.Text;
-                        }
-
-                    }
-                    string Name = firstName + " " + lastName;
-                    ListViewItem edit = new ListViewItem ( );
-                    
-                    int areaCode;
-                    int first3;
-                    int last4;
-
-                    int.TryParse ( txtArea.Text,out areaCode );
-                    int.TryParse ( txtPhone1.Text,out first3 );
-                    int.TryParse ( txtphone2.Text,out last4 );
-
-
-                    phoneNumber = areaCode + " " + first3 + " " + last4;
-
-                    
-                    email = txtemail1.Text + "@" + txtemail2.Text + cmbextension.Text;
-
-                    edit.Text = Name;
-                    edit.SubItems.Add ( phoneNumber );
-                    edit.SubItems.Add ( email );
-                    edit.ImageIndex = 0;
-
-                    lvUsers.Items[i] = edit;
-
-                    ClearInputs ( );
-                    
-  
-                }
-            }
         }
 
         private void ClearInputs ( )
@@ -301,6 +179,225 @@ namespace BarberEric_CE02
                         files.Write ( users );
                     }
                     myStream.Close ( ); // Closes the file
+                }
+            }
+        }
+        private bool ValidatePhoneLength ( )
+        {
+            if (txtArea.TextLength != 3)
+            {
+               
+                MessageBox.Show ( "error within phone number" );
+                return false;  
+            }
+            if (txtPhone1.TextLength != 3)
+            {
+              
+                MessageBox.Show ( "error within phone number" );
+                return false;
+            }
+            if (txtphone2.TextLength != 4)
+            {
+        
+                MessageBox.Show ( "error within phone number" );
+                return false;
+            }
+
+            return true;
+        }
+
+        private void btnAdd_Click ( object sender,EventArgs e )
+        {
+            bool adding = true;
+            while (adding)
+            {
+                string phoneNumber = "";
+                string email;
+
+                string[] nums = new string[] { "1","2","3","4","5","6","7","8","9","0" };
+                ListViewItem lv = new ListViewItem ( );
+                UserInfo data = new UserInfo ( );
+
+                for (int i = 0; i < nums.Length; i++)
+                {
+
+                    if (string.IsNullOrWhiteSpace ( txtFirstName.Text ) || txtFirstName.Text.Contains ( nums[i] ))
+                    {
+                        MessageBox.Show ( "Please don't enter numbers" );
+                        break;
+                    }
+                    if (i == nums.Length - 1)
+                    {
+                        firstName = txtFirstName.Text;
+                    }
+
+                }
+                for (int i = 0; i < nums.Length; i++)
+                {
+
+                    if (string.IsNullOrWhiteSpace ( txtLastName.Text ) || txtLastName.Text.Contains ( nums[i] ))
+                    {
+                        MessageBox.Show ( "Please don't enter numbers" );
+                        break;
+                    }
+                    if (i == nums.Length - 1)
+                    {
+                        lastName = txtLastName.Text;
+                    }
+
+                }
+                string Name = firstName + " " + lastName;
+
+                lv.Text = Name;
+
+                int areaCode;
+                int first3;
+                int last4;
+
+
+                try
+                {
+
+                    int.TryParse ( txtArea.Text,out areaCode );
+                    int.TryParse ( txtPhone1.Text,out first3 );
+                    int.TryParse ( txtphone2.Text,out last4 );
+
+                    //this checks to see if the phone contains letters for if the above fails then the sum of the equation will be 0
+                    if (areaCode + first3 + last4 == 0)
+                    {
+                        MessageBox.Show ( "Dont add letters within the phone number" );
+                        break;
+                    }
+
+
+                    adding = ValidatePhoneLength ( );
+                    if (adding == false)
+                    {
+                        break;
+                    }
+
+
+                    //set the value to a string for saving and adding purposes
+                    phoneNumber = areaCode + " " + first3 + " " + last4;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show ( "Somthing went wrong check the phone number" );
+                }
+                lv.SubItems.Add ( phoneNumber.ToString ( ) );
+                email = txtemail1.Text + "@" + txtemail2.Text + cmbextension.Text;
+
+                lv.SubItems.Add ( email );
+
+
+                lv.ImageIndex = 0;
+                try
+                {
+                    for (int i = 0; i < lvUsers.Items.Count; i++)
+                    {
+                        if (lvUsers.Items[i].SubItems[1].ToString ( ) == phoneNumber.ToString ( ))
+                        {
+                            MessageBox.Show ( "user Email already exists please try again" );
+                            break;
+                        }
+                    }
+
+                    lvUsers.Items.Add ( lv );
+                    ClearInputs ( );
+                }
+                catch
+                {
+
+                }
+
+                break;
+
+            }
+        }
+
+        private void btnEdit_Click ( object sender,EventArgs e )
+        {
+            bool editing = true;
+            while (editing)
+            {
+                for (int i = 0; i < lvUsers.Items.Count; i++)
+                {
+                    if (firstName + " " + lastName == lvUsers.Items[i].Text)
+                    {
+                        string phoneNumber = "";
+                        string email;
+
+
+                        string[] nums = new string[] { "1","2","3","4","5","6","7","8","9","0" };
+
+
+                        for (int k = 0; k < nums.Length; k++)
+                        {
+
+                            if (string.IsNullOrWhiteSpace ( txtFirstName.Text ) || txtFirstName.Text.Contains ( nums[i] ))
+                            {
+                                MessageBox.Show ( "Please don't enter numbers" );
+                                break;
+                            }
+                            if (k == nums.Length - 1)
+                            {
+                                firstName = txtFirstName.Text;
+                            }
+
+                        }
+                        for (int k = 0; k < nums.Length; k++)
+                        {
+
+                            if (string.IsNullOrWhiteSpace ( txtLastName.Text ) || txtLastName.Text.Contains ( nums[i] ))
+                            {
+                                MessageBox.Show ( "Please don't enter numbers" );
+                                break;
+                            }
+                            if (k == nums.Length - 1)
+                            {
+                                lastName = txtLastName.Text;
+                            }
+
+                        }
+                        string Name = firstName + " " + lastName;
+                        ListViewItem edit = new ListViewItem ( );
+
+                        int areaCode;
+                        int first3;
+                        int last4;
+                        try
+                        {
+                            int.TryParse ( txtArea.Text,out areaCode );
+                            int.TryParse ( txtPhone1.Text,out first3 );
+                            int.TryParse ( txtphone2.Text,out last4 );
+
+                            editing = ValidatePhoneLength ( );
+                            if (editing == false)
+                            {
+                                break;
+                            }
+
+                            phoneNumber = areaCode + " " + first3 + " " + last4;
+                        }
+                        catch (Exception r)
+                        {
+                            MessageBox.Show ( $"Somthing went wrong: {r.ToString ( )}" );
+                        }
+
+                        email = txtemail1.Text + "@" + txtemail2.Text + cmbextension.Text;
+
+                        edit.Text = Name;
+                        edit.SubItems.Add ( phoneNumber );
+                        edit.SubItems.Add ( email );
+                        edit.ImageIndex = 0;
+
+                        lvUsers.Items[i] = edit;
+
+                        ClearInputs ( );
+                        editing = false;
+                        break;
+
+                    }
                 }
             }
         }

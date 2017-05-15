@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.cmbextension = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtemail2 = new System.Windows.Forms.TextBox();
@@ -53,12 +53,12 @@
             this.lblLast = new System.Windows.Forms.Label();
             this.lblfirst = new System.Windows.Forms.Label();
             this.lvUsers = new System.Windows.Forms.ListView();
+            this.largeIcon = new System.Windows.Forms.ImageList(this.components);
+            this.smallIcon = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.smallIcon = new System.Windows.Forms.ImageList(this.components);
-            this.largeIcon = new System.Windows.Forms.ImageList(this.components);
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.largeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,9 +68,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnAdd);
+            this.groupBox1.Controls.Add(this.btnEdit);
+            this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.cmbextension);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtemail2);
@@ -98,41 +98,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users:";
             // 
-            // button3
+            // btnAdd
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(369, 331);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 60);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Add";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(369, 331);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(141, 60);
+            this.btnAdd.TabIndex = 20;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button2
+            // btnEdit
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(201, 331);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 60);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(201, 331);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(141, 60);
+            this.btnEdit.TabIndex = 21;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // button1
+            // btnDelete
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(34, 331);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 60);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(34, 331);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(141, 60);
+            this.btnDelete.TabIndex = 22;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.button1_Click);
             // 
             // cmbextension
             // 
@@ -224,6 +224,7 @@
             // txtphone2
             // 
             this.txtphone2.Location = new System.Drawing.Point(416, 202);
+            this.txtphone2.MaxLength = 4;
             this.txtphone2.Name = "txtphone2";
             this.txtphone2.Size = new System.Drawing.Size(114, 31);
             this.txtphone2.TabIndex = 9;
@@ -232,6 +233,7 @@
             // txtPhone1
             // 
             this.txtPhone1.Location = new System.Drawing.Point(299, 203);
+            this.txtPhone1.MaxLength = 3;
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Size = new System.Drawing.Size(90, 31);
             this.txtPhone1.TabIndex = 8;
@@ -240,6 +242,7 @@
             // txtArea
             // 
             this.txtArea.Location = new System.Drawing.Point(171, 202);
+            this.txtArea.MaxLength = 3;
             this.txtArea.Name = "txtArea";
             this.txtArea.Size = new System.Drawing.Size(72, 31);
             this.txtArea.TabIndex = 7;
@@ -306,6 +309,20 @@
             this.lvUsers.UseCompatibleStateImageBehavior = false;
             this.lvUsers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvUsers_MouseDoubleClick);
             // 
+            // largeIcon
+            // 
+            this.largeIcon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("largeIcon.ImageStream")));
+            this.largeIcon.Tag = "https://upload.wikimedia.org/wikipedia/commons/e/e4/Elliot_Grieveson.png";
+            this.largeIcon.TransparentColor = System.Drawing.Color.Transparent;
+            this.largeIcon.Images.SetKeyName(0, "icn for users.png");
+            // 
+            // smallIcon
+            // 
+            this.smallIcon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("smallIcon.ImageStream")));
+            this.smallIcon.Tag = "https://upload.wikimedia.org/wikipedia/commons/e/e4/Elliot_Grieveson.png";
+            this.smallIcon.TransparentColor = System.Drawing.Color.Transparent;
+            this.smallIcon.Images.SetKeyName(0, "icn for users.png");
+            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -314,7 +331,7 @@
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1126, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1126, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -324,13 +341,13 @@
             this.saveToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(165, 38);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -341,20 +358,6 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // smallIcon
-            // 
-            this.smallIcon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("smallIcon.ImageStream")));
-            this.smallIcon.Tag = "https://upload.wikimedia.org/wikipedia/commons/e/e4/Elliot_Grieveson.png";
-            this.smallIcon.TransparentColor = System.Drawing.Color.Transparent;
-            this.smallIcon.Images.SetKeyName(0, "icn for users.png");
-            // 
-            // largeIcon
-            // 
-            this.largeIcon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("largeIcon.ImageStream")));
-            this.largeIcon.Tag = "https://upload.wikimedia.org/wikipedia/commons/e/e4/Elliot_Grieveson.png";
-            this.largeIcon.TransparentColor = System.Drawing.Color.Transparent;
-            this.largeIcon.Images.SetKeyName(0, "icn for users.png");
-            // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -362,7 +365,7 @@
             this.smallToolStripMenuItem});
             this.viewToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(78, 38);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(78, 36);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // largeToolStripMenuItem
@@ -371,7 +374,7 @@
             this.largeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.largeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.largeToolStripMenuItem.Name = "largeToolStripMenuItem";
-            this.largeToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.largeToolStripMenuItem.Size = new System.Drawing.Size(173, 38);
             this.largeToolStripMenuItem.Text = "Large";
             this.largeToolStripMenuItem.Click += new System.EventHandler(this.largeToolStripMenuItem_Click);
             // 
@@ -379,7 +382,7 @@
             // 
             this.smallToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.smallToolStripMenuItem.Name = "smallToolStripMenuItem";
-            this.smallToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.smallToolStripMenuItem.Size = new System.Drawing.Size(173, 38);
             this.smallToolStripMenuItem.Text = "Small";
             this.smallToolStripMenuItem.Click += new System.EventHandler(this.smallToolStripMenuItem_Click);
             // 
@@ -410,7 +413,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ListView lvUsers;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ComboBox cmbextension;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtemail2;
@@ -429,8 +432,8 @@
         private System.Windows.Forms.Label lblphone;
         private System.Windows.Forms.Label lblLast;
         private System.Windows.Forms.Label lblfirst;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.ImageList largeIcon;
         private System.Windows.Forms.ImageList smallIcon;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
