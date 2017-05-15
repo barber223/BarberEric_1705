@@ -154,6 +154,7 @@ namespace BarberEric_CE02
                 {
                     string phoneNumber;
                     string email;
+                    
 
                     string[] nums = new string[] { "1","2","3","4","5","6","7","8","9","0" };
                     
@@ -166,7 +167,7 @@ namespace BarberEric_CE02
                             MessageBox.Show ( "Please don't enter numbers" );
                             break;
                         }
-                        if (i == nums.Length - 1)
+                        if (k == nums.Length - 1)
                         {
                             firstName = txtFirstName.Text;
                         }
@@ -203,7 +204,7 @@ namespace BarberEric_CE02
                     
                     email = txtemail1.Text + "@" + txtemail2.Text + cmbextension.Text;
 
-                    edit.Text = firstName + " " + lastName;
+                    edit.Text = Name;
                     edit.SubItems.Add ( phoneNumber );
                     edit.SubItems.Add ( email );
                     edit.ImageIndex = 0;
@@ -226,6 +227,44 @@ namespace BarberEric_CE02
             txtLastName.Clear ( );
             txtPhone1.Clear ( );
             txtphone2.Clear ( );
+        }
+
+        private void button1_Click ( object sender,EventArgs e )
+        {
+            if (lvUsers.SelectedItems[0]!= null)
+            {
+                // have to remove the item
+                lvUsers.Items.Remove ( lvUsers.SelectedItems[0] );
+
+            }
+        }
+
+        private void largeToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            if (largeToolStripMenuItem.Checked != true)
+            {
+                largeToolStripMenuItem.Checked = true;
+                smallToolStripMenuItem.Checked = false;
+                lvUsers.View = View.LargeIcon;
+            }
+            else
+            {
+                MessageBox.Show ( "The larger icon is already being displayed" );
+            }
+        }
+
+        private void smallToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            if (smallToolStripMenuItem.Checked != true)
+            {
+                smallToolStripMenuItem.Checked = true;
+                largeToolStripMenuItem.Checked = false;
+                lvUsers.View = View.SmallIcon;
+            }
+            else
+            {
+                MessageBox.Show ( "The small icon is already being displayed" );
+            }
         }
     }
 }
