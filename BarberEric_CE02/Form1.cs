@@ -266,5 +266,43 @@ namespace BarberEric_CE02
                 MessageBox.Show ( "The small icon is already being displayed" );
             }
         }
+
+        private void saveToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            Stream myStream;   // set the stream
+            SaveFileDialog saveFile = new SaveFileDialog ( );  //
+            saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFile.FilterIndex = 2;
+            saveFile.RestoreDirectory = true;
+
+            if (saveFile.ShowDialog ( ) == DialogResult.OK)
+            {
+                if ((myStream = saveFile.OpenFile ( )) != null)
+                {
+                    using (TextWriter files = new StreamWriter ( myStream ))
+                    {
+                        string users = "";
+                        //TextWriter files;
+                        for (int i = 0; i < lvUsers.Items.Count; i++)
+                        {
+                            if (i < lvUsers.Items.Count - 1)
+                            {
+                                 users += lvUsers.Items[i].Text + "|" + lvUsers.Items[i].SubItems[1].ToString() + "|" + lvUsers.Items[i].SubItems[2].ToString() + "#";
+                            }
+                            else if (i == lvUsers.Items.Count-1)
+                            {
+                                users += lvUsers.Items[i].Text + "|" + lvUsers.Items[i].SubItems[1].ToString() + "|" + lvUsers.Items[i].SubItems[2].ToString();
+                            }
+                        }
+
+
+
+                         // saved the file into a string format to be able to pul it from thr file properly
+                        files.Write ( users );
+                    }
+                    myStream.Close ( ); // Closes the file
+                }
+            }
+        }
     }
 }
