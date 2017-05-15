@@ -34,7 +34,7 @@ namespace BarberEric_CE02
         private void button3_Click ( object sender,EventArgs e )
         {
          
-            int phoneNumber;
+           string phoneNumber;
             string email;
             
            string[] nums = new string[] {"1","2","3","4","5","6","7","8","9","0" };
@@ -82,7 +82,7 @@ namespace BarberEric_CE02
             int.TryParse ( txtphone2.Text,out last4 );
 
 
-            phoneNumber = areaCode + first3 + last4;
+            phoneNumber = areaCode +" "+ first3 +" "+ last4;
 
             lv.SubItems.Add ( phoneNumber.ToString() );
             email = txtemail1.Text + "@" + txtemail2.Text + "." + cmbextension.Text;
@@ -103,7 +103,44 @@ namespace BarberEric_CE02
         {
             if (lvUsers.SelectedItems[0] != null)
             {
-                string name = lvUsers.SelectedItems[0].
+                string name = lvUsers.SelectedItems[0].Text;
+                string[] arrayname = new string[2];
+                arrayname = name.Split ( ' ' );
+                txtFirstName.Text = arrayname[0];
+                txtLastName.Text = arrayname[1];
+
+                string number = lvUsers.SelectedItems[0].SubItems[0].Text;
+
+                string[] arraynumber = new string[3];
+                arraynumber = number.Split ( ' ' );
+                txtArea.Text = arraynumber[0];
+                txtPhone1.Text = arraynumber[1];
+                txtphone2.Text = arraynumber[2];
+
+                string email = lvUsers.SelectedItems[0].SubItems[1].Text;
+
+                string[] arrayEmail = new string[5];
+                char[] splitType =new char [2]{ '@' , '.'};
+
+
+                arrayEmail = email.Split ( splitType );
+
+                txtemail1.Text = arrayEmail[0];
+                txtemail2.Text = arrayEmail[1];
+                if (arrayEmail[2] == "net")
+                {
+                    cmbextension.Text = ".net";
+                }
+                else if (arrayEmail[2] == "com")
+                {
+                    cmbextension.Text = ".com";
+                }
+                else if (arrayEmail[2] == "edu")
+                {
+                    cmbextension.Text = ".edu";
+                }
+
+
             }
         }
     }
