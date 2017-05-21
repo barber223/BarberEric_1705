@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace BarberEric_CE03
@@ -13,6 +13,9 @@ namespace BarberEric_CE03
     public partial class Form1 : Form
     {
         ScoreBoard score = new ScoreBoard ( );
+
+        Random rand = new Random ( );
+       
 
         public Form1 ( )
         {
@@ -25,90 +28,176 @@ namespace BarberEric_CE03
         string[,] TheBoard = new string[3, 3];
         string going = "";
 
+        public string PlayerVsComputerSelection = "";
+
+
         private void btn1_DragEnter ( object sender,DragEventArgs e )
         {
-            if (e.Data.GetDataPresent ( DataFormats.Text ))
+            if (playerVsPlayerToolStripMenuItem.Checked == true)
             {
-                e.Effect = DragDropEffects.Copy;
+                if (e.Data.GetDataPresent ( DataFormats.Text ))
+                {
+                    e.Effect = DragDropEffects.Copy;
+                }
+                else
+                {
+                    e.Effect = DragDropEffects.None;
+                }
             }
-            else
+            else if (playerVsComputerToolStripMenuItem.Checked == true)
             {
-                e.Effect = DragDropEffects.None;
+                if (e.Data.GetDataPresent ( DataFormats.Text ))
+                {
+                    e.Effect = DragDropEffects.Copy;
+                }
+                else
+                {
+                    e.Effect = DragDropEffects.None;
+                }
+               
+
             }
 
         }
+        private void CumputerRunO ( )
+        {
+            Thread.Sleep ( 1000 );
+            int cumputerSpot1;
+            int cumputerSpot2;
+            bool running = true;
+            while (running)
+            {
+                cumputerSpot1 = rand.Next ( 0,2 );
+                cumputerSpot2 = rand.Next ( 0,2 );
+
+                if (TheBoard[cumputerSpot1,cumputerSpot2] == null)
+                {
+                    TheBoard[cumputerSpot1,cumputerSpot2] = "o";
+
+                    //Set's the cumputers play to the right button
+                    if (cumputerSpot1 == 0 && cumputerSpot2 == 0)
+                    {
+                        btn1.BackgroundImage = imageList1.Images[1];
+                        running = false;
+                    }
+                    else if (cumputerSpot1 == 1 && cumputerSpot2 == 0)
+                    {
+                        btn2.BackgroundImage = imageList1.Images[1];
+                        running = false;
+                    }
+                    else if (cumputerSpot1 == 2 && cumputerSpot2 == 0)
+                    {
+                        btn3.BackgroundImage = imageList1.Images[1];
+                        running = false;
+                    }
+                    else if (cumputerSpot1 == 0 && cumputerSpot2 == 1)
+                    {
+                        btn4.BackgroundImage = imageList1.Images[1];
+                        running = false;
+                    }
+                    else if (cumputerSpot1 == 1 && cumputerSpot2 == 1)
+                    {
+                        btn5.BackgroundImage = imageList1.Images[1];
+                        running = false;
+                    }
+                    else if (cumputerSpot1 == 2 && cumputerSpot2 == 1)
+                    {
+                        btn6.BackgroundImage = imageList1.Images[1];
+                        running = false;
+                    }
+                    else if (cumputerSpot1 == 0 && cumputerSpot2 == 2)
+                    {
+                        btn7.BackgroundImage = imageList1.Images[1];
+                        running = false;
+                    }
+                    else if (cumputerSpot1 == 1 && cumputerSpot2 == 2)
+                    {
+                        btn8.BackgroundImage = imageList1.Images[1];
+                        running = false;
+                    }
+                    else if (cumputerSpot1 == 2 && cumputerSpot2 == 2)
+                    {
+                        btn9.BackgroundImage = imageList1.Images[1];
+                        running = false;
+                    }
+
+                }
+
+
+
+
+            }
+        }
+       
+
+
         private void btnX_MouseDown ( object sender,MouseEventArgs e )
         {
             //This will check to see if there is a winner befor each play and if there is a winner it will kick them befor there allowed to continue player.
-            
-            if (going == "" || going == "o" && winner == false)
+            if (playerVsPlayerToolStripMenuItem.Checked == true)
             {
-                going = "x";
-                btnX.DoDragDrop ( btnX.Text,DragDropEffects.Copy |
-               DragDropEffects.Move );
+                if (going == "" || going == "o" && winner == false)
+                {
+                    going = "x";
+                    btnX.DoDragDrop ( btnX.Text,DragDropEffects.Copy |
+                   DragDropEffects.Move );
+                }
+
+                else if (going == "x")
+                {
+                    MessageBox.Show ( "Please wait your turn its O's turn" );
+                }
+
             }
 
-        else if (going =="x" )
+            else if (playerVsComputerToolStripMenuItem.Checked = true && PlayerVsComputerSelection == "X")
             {
-                MessageBox.Show ( "Please wait your turn its O's turn" );
+      
+
+                if (going == "" || going == "o" && winner == false)
+                {
+                    going = "x";
+                    btnX.DoDragDrop ( btnX.Text,DragDropEffects.Copy |
+                   DragDropEffects.Move );
+                }
+                //MessageBox.Show ( "Working" );
+                
+
+
+
+
+
             }
-            
-            
+
+
         } 
         private void btnO_MouseDown ( object sender,MouseEventArgs e )
         {
             //This will check to see if there is a winner befor each play and if there is a winner it will kick them befor there allowed to continue player.
-            
-            if (going == ""||going == "x" && winner == false) {
-                going = "o";
-                btnO.DoDragDrop ( btnO.Text,DragDropEffects.Copy |
-              DragDropEffects.Move );
-            }
-
-            else if (going == "o")
+            if (playerVsPlayerToolStripMenuItem.Checked == true)
             {
-                MessageBox.Show ( "Please wait your turn its X's turn" );
-            }
-
-        }
-        private void ThereWasAwinner ( )
-        {
-
-            if (WhoWon == "o")
-            {
-                score.OWins += 1;
-                Owins.Value = score.OWins;
-            }
-            else if (WhoWon == "x")
-            {
-                score.XWins += 1;
-                Xwins.Value = score.XWins;
-            }
-
-            ClearBoard ( );
-
-        }
-        private void ClearBoard ( )
-        {
-            going = "";
-            btn1.BackgroundImage = null;
-            btn2.BackgroundImage = null;
-            btn3.BackgroundImage = null;
-            btn4.BackgroundImage = null;
-            btn5.BackgroundImage = null;
-            btn6.BackgroundImage = null;
-            btn7.BackgroundImage = null;
-            btn8.BackgroundImage = null;
-            btn9.BackgroundImage = null;
-            for (int i = 0; i < 3; i++)
-            {
-                for (int k = 0; k < 3;k++)
+                if (going == "" || going == "x" && winner == false)
                 {
-                    TheBoard[i,k] = "";
+                    going = "o";
+                    btnO.DoDragDrop ( btnO.Text,DragDropEffects.Copy |
+                  DragDropEffects.Move );
+                }
+
+                else if (going == "o")
+                {
+                    MessageBox.Show ( "Please wait your turn its X's turn" );
                 }
             }
-            winner = false;
+            else if (playerVsComputerToolStripMenuItem.Checked == true && PlayerVsComputerSelection == "O")
+            {
+                MessageBox.Show ( "working o" );
+            }
+
+
+
         }
+        
+        
 
         private void btn1_DragDrop ( object sender,DragEventArgs e )
         {if (btn1.BackgroundImage == null)
@@ -124,7 +213,9 @@ namespace BarberEric_CE03
                     TheBoard[0,0] = "o";
                 }
                 winner = BoardCheck ( );
-               
+                if (playerVsComputerToolStripMenuItem.Checked == true) {
+                    CumputerRunO ( );
+                }
             }
         else
             {
@@ -529,7 +620,74 @@ namespace BarberEric_CE03
 
         }
 
+        private void ClearBoard ( )
+        {
+            going = "";
+            btn1.BackgroundImage = null;
+            btn2.BackgroundImage = null;
+            btn3.BackgroundImage = null;
+            btn4.BackgroundImage = null;
+            btn5.BackgroundImage = null;
+            btn6.BackgroundImage = null;
+            btn7.BackgroundImage = null;
+            btn8.BackgroundImage = null;
+            btn9.BackgroundImage = null;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
+                    TheBoard[i,k] = "";
+                }
+            }
+            winner = false;
+        }
 
+        private void ThereWasAwinner ( )
+        {
+
+            if (WhoWon == "o")
+            {
+                score.OWins += 1;
+                Owins.Value = score.OWins;
+            }
+            else if (WhoWon == "x")
+            {
+                score.XWins += 1;
+                Xwins.Value = score.XWins;
+            }
+
+            ClearBoard ( );
+
+        }
+
+        private void playerVsPlayerToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            if (playerVsPlayerToolStripMenuItem.Checked == false)
+            {
+                playerVsPlayerToolStripMenuItem.Checked = true;
+                playerVsComputerToolStripMenuItem.Checked = false;
+            }
+        }
+
+        private void playerVsComputerToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            Form2 Select = new Form2 ( );
+            if (playerVsComputerToolStripMenuItem.Checked == false)
+            {
+                playerVsComputerToolStripMenuItem.Checked = true;
+                playerVsPlayerToolStripMenuItem.Checked = false;
+            }
+
+            Select.selection += Select_selection;
+
+            Select.ShowDialog ( );
+
+        }
+
+        private void Select_selection ( object sender, Form2.SelectType e )
+        {
+            PlayerVsComputerSelection = e.type;
+        }
 
     }
 }

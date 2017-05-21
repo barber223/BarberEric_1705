@@ -33,6 +33,10 @@
             this.btnO = new System.Windows.Forms.Button();
             this.btnX = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Owins = new System.Windows.Forms.NumericUpDown();
+            this.Xwins = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn9 = new System.Windows.Forms.Button();
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
@@ -43,15 +47,21 @@
             this.btn2 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Xwins = new System.Windows.Forms.NumericUpDown();
-            this.Owins = new System.Windows.Forms.NumericUpDown();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playerVsPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playerVsComputerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Xwins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Owins)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Xwins)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnO
@@ -95,18 +105,57 @@
             this.groupBox1.Controls.Add(this.btn2);
             this.groupBox1.Controls.Add(this.btn1);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(51, 28);
+            this.groupBox1.Controls.Add(this.menuStrip1);
+            this.groupBox1.Location = new System.Drawing.Point(51, 44);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1108, 760);
+            this.groupBox1.Size = new System.Drawing.Size(1108, 744);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // Owins
+            // 
+            this.Owins.Enabled = false;
+            this.Owins.Location = new System.Drawing.Point(158, 608);
+            this.Owins.Name = "Owins";
+            this.Owins.ReadOnly = true;
+            this.Owins.Size = new System.Drawing.Size(120, 31);
+            this.Owins.TabIndex = 13;
+            // 
+            // Xwins
+            // 
+            this.Xwins.Enabled = false;
+            this.Xwins.Location = new System.Drawing.Point(158, 560);
+            this.Xwins.Name = "Xwins";
+            this.Xwins.ReadOnly = true;
+            this.Xwins.Size = new System.Drawing.Size(120, 31);
+            this.Xwins.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 601);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(133, 37);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "O wins: ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 553);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 37);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "X wins: ";
             // 
             // btn9
             // 
             this.btn9.AllowDrop = true;
             this.btn9.BackColor = System.Drawing.Color.Transparent;
             this.btn9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn9.Location = new System.Drawing.Point(844, 521);
+            this.btn9.Location = new System.Drawing.Point(844, 505);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(213, 203);
             this.btn9.TabIndex = 9;
@@ -119,7 +168,7 @@
             this.btn8.AllowDrop = true;
             this.btn8.BackColor = System.Drawing.Color.Transparent;
             this.btn8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn8.Location = new System.Drawing.Point(612, 521);
+            this.btn8.Location = new System.Drawing.Point(612, 505);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(213, 203);
             this.btn8.TabIndex = 8;
@@ -132,7 +181,7 @@
             this.btn7.AllowDrop = true;
             this.btn7.BackColor = System.Drawing.Color.Transparent;
             this.btn7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn7.Location = new System.Drawing.Point(381, 521);
+            this.btn7.Location = new System.Drawing.Point(381, 505);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(213, 203);
             this.btn7.TabIndex = 7;
@@ -145,7 +194,7 @@
             this.btn6.AllowDrop = true;
             this.btn6.BackColor = System.Drawing.Color.Transparent;
             this.btn6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn6.Location = new System.Drawing.Point(844, 291);
+            this.btn6.Location = new System.Drawing.Point(844, 273);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(213, 203);
             this.btn6.TabIndex = 6;
@@ -158,7 +207,7 @@
             this.btn5.AllowDrop = true;
             this.btn5.BackColor = System.Drawing.Color.Transparent;
             this.btn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn5.Location = new System.Drawing.Point(612, 291);
+            this.btn5.Location = new System.Drawing.Point(612, 273);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(213, 203);
             this.btn5.TabIndex = 5;
@@ -171,7 +220,7 @@
             this.btn4.AllowDrop = true;
             this.btn4.BackColor = System.Drawing.Color.Transparent;
             this.btn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn4.Location = new System.Drawing.Point(381, 291);
+            this.btn4.Location = new System.Drawing.Point(381, 273);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(213, 203);
             this.btn4.TabIndex = 4;
@@ -184,7 +233,7 @@
             this.btn3.AllowDrop = true;
             this.btn3.BackColor = System.Drawing.Color.Transparent;
             this.btn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn3.Location = new System.Drawing.Point(844, 64);
+            this.btn3.Location = new System.Drawing.Point(844, 48);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(213, 203);
             this.btn3.TabIndex = 3;
@@ -197,7 +246,7 @@
             this.btn2.AllowDrop = true;
             this.btn2.BackColor = System.Drawing.Color.Transparent;
             this.btn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn2.Location = new System.Drawing.Point(612, 64);
+            this.btn2.Location = new System.Drawing.Point(612, 48);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(213, 203);
             this.btn2.TabIndex = 2;
@@ -210,7 +259,7 @@
             this.btn1.AllowDrop = true;
             this.btn1.BackColor = System.Drawing.Color.Transparent;
             this.btn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn1.Location = new System.Drawing.Point(381, 62);
+            this.btn1.Location = new System.Drawing.Point(381, 46);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(213, 203);
             this.btn1.TabIndex = 0;
@@ -222,11 +271,20 @@
             // 
             this.pictureBox1.BackgroundImage = global::BarberEric_CE03.Properties.Resources.TicTacToeBoard_01;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(343, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(343, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(750, 750);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Location = new System.Drawing.Point(3, 27);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1102, 24);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // imageList1
             // 
@@ -235,43 +293,74 @@
             this.imageList1.Images.SetKeyName(0, "TicTacToeBoard-02.jpg");
             this.imageList1.Images.SetKeyName(1, "TicTacToeBoard-03.jpg");
             // 
-            // label1
+            // menuStrip2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 553);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 37);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "X wins: ";
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip2.Location = new System.Drawing.Point(0, 42);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1198, 24);
+            this.menuStrip2.TabIndex = 3;
+            this.menuStrip2.Text = "menuStrip2";
             // 
-            // label2
+            // menuStrip3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 601);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 37);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "O wins: ";
+            this.menuStrip3.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.gameToolStripMenuItem});
+            this.menuStrip3.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip3.Name = "menuStrip3";
+            this.menuStrip3.Size = new System.Drawing.Size(1198, 42);
+            this.menuStrip3.TabIndex = 4;
+            this.menuStrip3.Text = "menuStrip3";
             // 
-            // Xwins
+            // fileToolStripMenuItem
             // 
-            this.Xwins.Enabled = false;
-            this.Xwins.Location = new System.Drawing.Point(158, 560);
-            this.Xwins.Name = "Xwins";
-            this.Xwins.ReadOnly = true;
-            this.Xwins.Size = new System.Drawing.Size(120, 31);
-            this.Xwins.TabIndex = 12;
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newGameToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // Owins
+            // newGameToolStripMenuItem
             // 
-            this.Owins.Enabled = false;
-            this.Owins.Location = new System.Drawing.Point(158, 608);
-            this.Owins.Name = "Owins";
-            this.Owins.ReadOnly = true;
-            this.Owins.Size = new System.Drawing.Size(120, 31);
-            this.Owins.TabIndex = 13;
+            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.newGameToolStripMenuItem.Text = "New Game";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // gameToolStripMenuItem
+            // 
+            this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playerVsPlayerToolStripMenuItem,
+            this.playerVsComputerToolStripMenuItem});
+            this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(89, 38);
+            this.gameToolStripMenuItem.Text = "Game";
+            // 
+            // playerVsPlayerToolStripMenuItem
+            // 
+            this.playerVsPlayerToolStripMenuItem.Checked = true;
+            this.playerVsPlayerToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.playerVsPlayerToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.playerVsPlayerToolStripMenuItem.Name = "playerVsPlayerToolStripMenuItem";
+            this.playerVsPlayerToolStripMenuItem.Size = new System.Drawing.Size(327, 38);
+            this.playerVsPlayerToolStripMenuItem.Text = "Player vs. Player";
+            this.playerVsPlayerToolStripMenuItem.Click += new System.EventHandler(this.playerVsPlayerToolStripMenuItem_Click);
+            // 
+            // playerVsComputerToolStripMenuItem
+            // 
+            this.playerVsComputerToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.playerVsComputerToolStripMenuItem.Name = "playerVsComputerToolStripMenuItem";
+            this.playerVsComputerToolStripMenuItem.Size = new System.Drawing.Size(327, 38);
+            this.playerVsComputerToolStripMenuItem.Text = "Player vs. Computer";
+            this.playerVsComputerToolStripMenuItem.Click += new System.EventHandler(this.playerVsComputerToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -282,14 +371,20 @@
             this.Controls.Add(this.btnX);
             this.Controls.Add(this.btnO);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip2);
+            this.Controls.Add(this.menuStrip3);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Xwins)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Owins)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Xwins)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip3.ResumeLayout(false);
+            this.menuStrip3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -313,6 +408,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown Owins;
         private System.Windows.Forms.NumericUpDown Xwins;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.MenuStrip menuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playerVsPlayerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playerVsComputerToolStripMenuItem;
     }
 }
 

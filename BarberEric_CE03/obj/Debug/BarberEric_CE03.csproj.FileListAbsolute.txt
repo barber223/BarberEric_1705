@@ -7,3 +7,4 @@
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE03\obj\Debug\BarberEric_CE03.csproj.GenerateResource.Cache
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE03\obj\Debug\BarberEric_CE03.exe
 \\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\barbereric_1705\BarberEric_CE03\obj\Debug\BarberEric_CE03.pdb
+\\vmware-host\Shared Folders\Desktop\Project and Portfolio 3\BarberEric_1705\BarberEric_CE03\obj\Debug\BarberEric_CE03.Form2.resources
