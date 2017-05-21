@@ -69,5 +69,25 @@ namespace BarberEric_CE03.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TicTacToeBoard_02 {
+            get {
+                object obj = ResourceManager.GetObject("TicTacToeBoard-02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TicTacToeBoard_03 {
+            get {
+                object obj = ResourceManager.GetObject("TicTacToeBoard-03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
