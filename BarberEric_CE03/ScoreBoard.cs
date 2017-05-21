@@ -8,10 +8,10 @@ namespace BarberEric_CE03
 {
     class ScoreBoard
     {
-        private int xWins = 0;
-        private int oWins = 0;
+        private decimal xWins = 0m;
+        private decimal oWins = 0m;
 
-        public int OWins
+        public decimal OWins
         {
             get
             {
@@ -22,7 +22,7 @@ namespace BarberEric_CE03
                 oWins = value;
             }
         }
-        public int XWins
+        public decimal XWins
         {
             get
             {

@@ -44,8 +44,14 @@
             this.btn1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Xwins = new System.Windows.Forms.NumericUpDown();
+            this.Owins = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Xwins)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Owins)).BeginInit();
             this.SuspendLayout();
             // 
             // btnO
@@ -75,6 +81,10 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.Owins);
+            this.groupBox1.Controls.Add(this.Xwins);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btn9);
             this.groupBox1.Controls.Add(this.btn8);
             this.groupBox1.Controls.Add(this.btn7);
@@ -225,6 +235,44 @@
             this.imageList1.Images.SetKeyName(0, "TicTacToeBoard-02.jpg");
             this.imageList1.Images.SetKeyName(1, "TicTacToeBoard-03.jpg");
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 553);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 37);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "X wins: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 601);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(133, 37);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "O wins: ";
+            // 
+            // Xwins
+            // 
+            this.Xwins.Enabled = false;
+            this.Xwins.Location = new System.Drawing.Point(158, 560);
+            this.Xwins.Name = "Xwins";
+            this.Xwins.ReadOnly = true;
+            this.Xwins.Size = new System.Drawing.Size(120, 31);
+            this.Xwins.TabIndex = 12;
+            // 
+            // Owins
+            // 
+            this.Owins.Enabled = false;
+            this.Owins.Location = new System.Drawing.Point(158, 608);
+            this.Owins.Name = "Owins";
+            this.Owins.ReadOnly = true;
+            this.Owins.Size = new System.Drawing.Size(120, 31);
+            this.Owins.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -237,7 +285,10 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Xwins)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Owins)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,6 +309,10 @@
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown Owins;
+        private System.Windows.Forms.NumericUpDown Xwins;
     }
 }
 

@@ -21,8 +21,8 @@ namespace BarberEric_CE03
 
         bool winner = false;
         string WhoWon = "";
-        
 
+        string[,] TheBoard = new string[3, 3];
         string going = "";
 
         private void btn1_DragEnter ( object sender,DragEventArgs e )
@@ -35,21 +35,19 @@ namespace BarberEric_CE03
             {
                 e.Effect = DragDropEffects.None;
             }
+
         }
         private void btnX_MouseDown ( object sender,MouseEventArgs e )
         {
             //This will check to see if there is a winner befor each play and if there is a winner it will kick them befor there allowed to continue player.
-            winner = BoardCheck ( );
+            
             if (going == "" || going == "o" && winner == false)
             {
                 going = "x";
                 btnX.DoDragDrop ( btnX.Text,DragDropEffects.Copy |
                DragDropEffects.Move );
             }
-        else if (winner == true)
-            {
-                ThereWasAwinner ( );
-            }
+
         else if (going =="x" )
             {
                 MessageBox.Show ( "Please wait your turn its O's turn" );
@@ -60,16 +58,13 @@ namespace BarberEric_CE03
         private void btnO_MouseDown ( object sender,MouseEventArgs e )
         {
             //This will check to see if there is a winner befor each play and if there is a winner it will kick them befor there allowed to continue player.
-            winner = BoardCheck ( );
+            
             if (going == ""||going == "x" && winner == false) {
                 going = "o";
                 btnO.DoDragDrop ( btnO.Text,DragDropEffects.Copy |
               DragDropEffects.Move );
             }
-            else if (winner == true)
-            {
-                ThereWasAwinner ( );
-            }
+
             else if (going == "o")
             {
                 MessageBox.Show ( "Please wait your turn its X's turn" );
@@ -78,11 +73,24 @@ namespace BarberEric_CE03
         }
         private void ThereWasAwinner ( )
         {
+
+            if (WhoWon == "o")
+            {
+                score.OWins += 1;
+                Owins.Value = score.OWins;
+            }
+            else if (WhoWon == "x")
+            {
+                score.XWins += 1;
+                Xwins.Value = score.XWins;
+            }
+
             ClearBoard ( );
 
         }
         private void ClearBoard ( )
         {
+            going = "";
             btn1.BackgroundImage = null;
             btn2.BackgroundImage = null;
             btn3.BackgroundImage = null;
@@ -92,6 +100,14 @@ namespace BarberEric_CE03
             btn7.BackgroundImage = null;
             btn8.BackgroundImage = null;
             btn9.BackgroundImage = null;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int k = 0; k < 3;k++)
+                {
+                    TheBoard[i,k] = "";
+                }
+            }
+            winner = false;
         }
 
         private void btn1_DragDrop ( object sender,DragEventArgs e )
@@ -100,11 +116,15 @@ namespace BarberEric_CE03
                 if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "x")
                 {
                     btn1.BackgroundImage = imageList1.Images[0];
+                    TheBoard[0,0] = "x";
                 }
                 else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn1.BackgroundImage = imageList1.Images[1];
+                    TheBoard[0,0] = "o";
                 }
+                winner = BoardCheck ( );
+               
             }
         else
             {
@@ -127,11 +147,14 @@ namespace BarberEric_CE03
                 if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "x")
                 {
                     btn2.BackgroundImage = imageList1.Images[0];
+                    TheBoard[1,0] = "x";
                 }
                 else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn2.BackgroundImage = imageList1.Images[1];
+                    TheBoard[1,0] = "o";
                 }
+                winner = BoardCheck ( );
             }
             else
             {
@@ -152,12 +175,15 @@ namespace BarberEric_CE03
             if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "x")
             {
                 btn3.BackgroundImage = imageList1.Images[0];
+                    TheBoard[2,0] = "x";
             }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
             {
                 btn3.BackgroundImage = imageList1.Images[1];
+                    TheBoard[2,0] = "o";
             }
-        }
+                winner = BoardCheck ( );
+            }
             else
             {
                 if (going == "o")
@@ -178,12 +204,15 @@ namespace BarberEric_CE03
             if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "x")
             {
                 btn4.BackgroundImage = imageList1.Images[0];
+                    TheBoard[0,1] = "x";
             }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
             {
                 btn4.BackgroundImage = imageList1.Images[1];
+                    TheBoard[0,1] = "o";
             }
-        }
+                winner = BoardCheck ( );
+            }
 
             else
             {
@@ -205,12 +234,15 @@ namespace BarberEric_CE03
             if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "x")
             {
                 btn5.BackgroundImage = imageList1.Images[0];
+                    TheBoard[1,1] = "x";
             }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
             {
                 btn5.BackgroundImage = imageList1.Images[1];
+                    TheBoard[1,1] = "o";
             }
-        }
+                winner = BoardCheck ( );
+            }
             else
             {
                 if (going == "o")
@@ -231,12 +263,15 @@ namespace BarberEric_CE03
                 if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "x")
             {
                 btn6.BackgroundImage = imageList1.Images[0];
+                    TheBoard[2,1] = "x";
             }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
             {
                 btn6.BackgroundImage = imageList1.Images[1];
+                    TheBoard[2,1] = "o";
             }
-        }
+                winner = BoardCheck ( );
+            }
             else
             {
                 if (going == "o")
@@ -257,11 +292,14 @@ namespace BarberEric_CE03
                 if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "x")
                 {
                     btn7.BackgroundImage = imageList1.Images[0];
+                    TheBoard[0,2] = "x";
                 }
                 else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn7.BackgroundImage = imageList1.Images[1];
+                    TheBoard[0,2] = "o";
                 }
+                winner = BoardCheck ( );
             }
             else
             {
@@ -283,11 +321,14 @@ namespace BarberEric_CE03
                 if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "x")
                 {
                     btn8.BackgroundImage = imageList1.Images[0];
+                    TheBoard[1,2] = "x";
                 }
                 else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn8.BackgroundImage = imageList1.Images[1];
+                    TheBoard[1,2] = "o";
                 }
+                winner = BoardCheck ( );
             }
             else
             {
@@ -309,11 +350,14 @@ namespace BarberEric_CE03
                 if (e.Data.GetData ( DataFormats.Text).ToString ( ) == "x")
             {
                     btn9.BackgroundImage = imageList1.Images[0];
+                    TheBoard[2,2] = "x";
                 }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn9.BackgroundImage = imageList1.Images[1];
+                    TheBoard[2,2] = "o";
                 }
+                winner = BoardCheck ( );
             }
             else
             {
@@ -332,108 +376,121 @@ namespace BarberEric_CE03
         private bool CheckX ( )
         {
             //This checks to see if X wins in any way there for the game will not continue
-            if (btn1.BackgroundImage == imageList1.Images[0] && btn2.BackgroundImage == imageList1.Images[0] && btn3.BackgroundImage == imageList1.Images[0])
-            {
-                MessageBox.Show ( "Congratulations X wins" );
+            if (TheBoard[0,0] == "x" && TheBoard[1,0] == "x" && TheBoard[2,0] == "x")
+            {//first horizontail row
                 WhoWon = "x";
+                MessageBox.Show ( "X is the winner of this game");
                 return true;
             }
-            else if (btn4.BackgroundImage == imageList1.Images[0] && btn5.BackgroundImage == imageList1.Images[0] && btn6.BackgroundImage == imageList1.Images[0])
+            else if (TheBoard[0,1] == "x" && TheBoard[1,1] == "x" && TheBoard[2,1] == "x")
             {
-                MessageBox.Show ( "Congratulations X wins" );
+                //second horizontal row
                 WhoWon = "x";
+                MessageBox.Show ( "X is the winner of this game" );
                 return true;
             }
-            else if (btn7.BackgroundImage == imageList1.Images[0] && btn8.BackgroundImage == imageList1.Images[0] && btn9.BackgroundImage == imageList1.Images[0])
+            else if (TheBoard[0,2] == "x" && TheBoard[1,2] == "x" && TheBoard[2,2] == "x")
             {
-                MessageBox.Show ( "Congratulations X wins" );
+                //third horizontal row
                 WhoWon = "x";
+                MessageBox.Show ( "X is the winner of this game" );
                 return true;
             }
-            else if (btn1.BackgroundImage == imageList1.Images[0] && btn4.BackgroundImage == imageList1.Images[0] && btn7.BackgroundImage == imageList1.Images[0])
-            {
-                MessageBox.Show ( "Congratulations X wins" );
+            else if (TheBoard[0,0] == "x" && TheBoard[0,1] == "x" && TheBoard[0,2] == "x")
+            {   //first vertical column
                 WhoWon = "x";
+                MessageBox.Show ( "X is the winner of this game" );
                 return true;
             }
-            else if (btn2.BackgroundImage == imageList1.Images[0] && btn5.BackgroundImage == imageList1.Images[0] && btn8.BackgroundImage == imageList1.Images[0])
-            {
-                MessageBox.Show ( "Congratulations X wins" );
+            else if (TheBoard[1,0] == "x" && TheBoard[1,1] == "x" && TheBoard[1,2] == "x")
+            {//second vertical column
                 WhoWon = "x";
+                MessageBox.Show ( "X is the winner of this game" );
                 return true;
             }
-            else if (btn3.BackgroundImage == imageList1.Images[0] && btn6.BackgroundImage == imageList1.Images[0] && btn9.BackgroundImage == imageList1.Images[0])
-            {
-                MessageBox.Show ( "Congratulations X wins" );
+            else if (TheBoard[2,0] == "x" && TheBoard[2,1] == "x" && TheBoard[2,2] == "x")
+            {//third vertical column
                 WhoWon = "x";
+                MessageBox.Show ( "X is the winner of this game" );
                 return true;
             }
-            else if (btn1.BackgroundImage == imageList1.Images[0] && btn5.BackgroundImage == imageList1.Images[0] && btn9.BackgroundImage == imageList1.Images[0])
+            else if (TheBoard[0,0] == "x" && TheBoard[1,1] == "x" && TheBoard[2,2] == "x")
             {
-                MessageBox.Show ( "Congratulations X wins" );
+                //right cross downwards
                 WhoWon = "x";
+                MessageBox.Show ( "X is the winner of this game" );
                 return true;
             }
-            else if (btn3.BackgroundImage == imageList1.Images[0] && btn5.BackgroundImage == imageList1.Images[0] && btn7.BackgroundImage == imageList1.Images[0])
+            else if (TheBoard[0,2] == "x" && TheBoard[1,1] == "x" && TheBoard[2,0] == "x")
             {
-                MessageBox.Show ( "Congratulations X wins" );
+                //cross to the right diagnal upwards
                 WhoWon = "x";
+                MessageBox.Show ( "X is the winner of this game" );
                 return true;
             }
-            else { return false; }
+
+
+            return false;
         }
             
         private bool CheckO ( )
-        {
-            if (btn1.BackgroundImage == imageList1.Images[1] && btn2.BackgroundImage == imageList1.Images[1] && btn3.BackgroundImage == imageList1.Images[1])
-            {
-                MessageBox.Show ( "Congratulations O wins" );
+        { 
+            //This checks to see if O wins in any way there for the game will not continue
+            if (TheBoard[0,0] == "o" && TheBoard[1,0] == "o" && TheBoard[2,0] == "o")
+            {//first horizontail row
                 WhoWon = "o";
+                MessageBox.Show ( "O is the winner of this game" );
                 return true;
             }
-            else if (btn4.BackgroundImage == imageList1.Images[1] && btn5.BackgroundImage == imageList1.Images[1] && btn6.BackgroundImage == imageList1.Images[1])
+            else if (TheBoard[0,1] == "o" && TheBoard[1,1] == "o" && TheBoard[2,1] == "o")
             {
-                MessageBox.Show ( "Congratulations O wins" );
+                //second horizontal row
                 WhoWon = "o";
+                MessageBox.Show ( "O is the winner of this game" );
                 return true;
             }
-            else if (btn7.BackgroundImage == imageList1.Images[1] && btn8.BackgroundImage == imageList1.Images[1] && btn9.BackgroundImage == imageList1.Images[1])
+            else if (TheBoard[0,2] == "o" && TheBoard[1,2] == "o" && TheBoard[2,2] == "o")
             {
-                MessageBox.Show ( "Congratulations O wins" );
+                //third horizontal row
                 WhoWon = "o";
+                MessageBox.Show ( "O is the winner of this game" );
                 return true;
             }
-            else if (btn1.BackgroundImage == imageList1.Images[1] && btn4.BackgroundImage == imageList1.Images[1] && btn7.BackgroundImage == imageList1.Images[0])
-            {
-                MessageBox.Show ( "Congratulations O wins" );
+            else if (TheBoard[0,0] == "o" && TheBoard[0,1] == "o" && TheBoard[0,2] == "o")
+            {   //first vertical column
                 WhoWon = "o";
+                MessageBox.Show ( "O is the winner of this game" );
                 return true;
             }
-            else if (btn2.BackgroundImage == imageList1.Images[1] && btn5.BackgroundImage == imageList1.Images[1] && btn8.BackgroundImage == imageList1.Images[1])
-            {
-                MessageBox.Show ( "Congratulations O wins" );
+            else if (TheBoard[1,0] == "o" && TheBoard[1,1] == "o" && TheBoard[1,2] == "o")
+            {//second vertical column
                 WhoWon = "o";
+                MessageBox.Show ( "O is the winner of this game" );
                 return true;
             }
-            else if (btn3.BackgroundImage == imageList1.Images[1] && btn6.BackgroundImage == imageList1.Images[1] && btn9.BackgroundImage == imageList1.Images[1])
-            {
-                MessageBox.Show ( "Congratulations O wins" );
+            else if (TheBoard[2,0] == "o" && TheBoard[2,1] == "o" && TheBoard[2,2] == "o")
+            {//third vertical column
                 WhoWon = "o";
+                MessageBox.Show ( "O is the winner of this game" );
                 return true;
             }
-            else if (btn1.BackgroundImage == imageList1.Images[1] && btn5.BackgroundImage == imageList1.Images[1] && btn9.BackgroundImage == imageList1.Images[1])
+            else if (TheBoard[0,0] == "o" && TheBoard[1,1] == "o" && TheBoard[2,2] == "o")
             {
-                MessageBox.Show ( "Congratulations O wins" );
+                //right cross downwards
                 WhoWon = "o";
+                MessageBox.Show ( "O is the winner of this game" );
                 return true;
             }
-            else if (btn3.BackgroundImage == imageList1.Images[1] && btn5.BackgroundImage == imageList1.Images[1] && btn7.BackgroundImage == imageList1.Images[1])
+            else if (TheBoard[0,2] == "o" && TheBoard[1,1] == "o" && TheBoard[2,0] == "o")
             {
-                MessageBox.Show ( "Congratulations O wins" );
+                //cross to the right diagnal upwards
                 WhoWon = "o";
+                MessageBox.Show ( "O is the winner of this game" );
                 return true;
             }
-            else { return false; }
+
+
+            return false;
         }
 
         private bool BoardCheck ( )
@@ -453,6 +510,7 @@ namespace BarberEric_CE03
                 xOrO = CheckO ( );
                 if (xOrO == true)
                 {
+                    ThereWasAwinner ( );
                     return true;
                 }
                 else
@@ -462,6 +520,7 @@ namespace BarberEric_CE03
             }
             else
             {
+                ThereWasAwinner ( );
                 return true;
             }
             //This will check to see if O wins in any way there for the game will not continue
