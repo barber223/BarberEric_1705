@@ -20,6 +20,7 @@ namespace BarberEric_CE03
         public Form1 ( )
         {
             InitializeComponent ( );
+            playerVsComputerToolStripMenuItem.Visible = false;
         }
 
         bool winner = false;
@@ -59,6 +60,7 @@ namespace BarberEric_CE03
             }
 
         }
+        /*
         private void CumputerRunO ( )
         {
             Thread.Sleep ( 1000 );
@@ -128,6 +130,7 @@ namespace BarberEric_CE03
 
             }
         }
+        */
        
 
 
@@ -213,9 +216,11 @@ namespace BarberEric_CE03
                     TheBoard[0,0] = "o";
                 }
                 winner = BoardCheck ( );
+                /*
                 if (playerVsComputerToolStripMenuItem.Checked == true) {
                     CumputerRunO ( );
                 }
+                */
             }
         else
             {
@@ -246,6 +251,12 @@ namespace BarberEric_CE03
                     TheBoard[1,0] = "o";
                 }
                 winner = BoardCheck ( );
+                /*
+                if (playerVsComputerToolStripMenuItem.Checked == true)
+                {
+                    CumputerRunO ( );
+                }
+                */
             }
             else
             {
@@ -275,6 +286,13 @@ namespace BarberEric_CE03
             }
                 winner = BoardCheck ( );
             }
+        /*
+            if (playerVsComputerToolStripMenuItem.Checked == true)
+            {
+                CumputerRunO ( );
+            }
+
+    */
             else
             {
                 if (going == "o")
@@ -304,7 +322,12 @@ namespace BarberEric_CE03
             }
                 winner = BoardCheck ( );
             }
-
+            /*
+            if (playerVsComputerToolStripMenuItem.Checked == true)
+            {
+                CumputerRunO ( );
+            }
+            */
             else
             {
                 if (going == "o")
@@ -334,6 +357,12 @@ namespace BarberEric_CE03
             }
                 winner = BoardCheck ( );
             }
+            /*
+            if (playerVsComputerToolStripMenuItem.Checked == true)
+            {
+                CumputerRunO ( );
+            }
+            */
             else
             {
                 if (going == "o")
@@ -363,6 +392,12 @@ namespace BarberEric_CE03
             }
                 winner = BoardCheck ( );
             }
+        /*
+            if (playerVsComputerToolStripMenuItem.Checked == true)
+            {
+                CumputerRunO ( );
+            }
+            */
             else
             {
                 if (going == "o")
@@ -392,6 +427,12 @@ namespace BarberEric_CE03
                 }
                 winner = BoardCheck ( );
             }
+        /*
+            if (playerVsComputerToolStripMenuItem.Checked == true)
+            {
+                CumputerRunO ( );
+            }
+            */
             else
             {
                 if (going == "o")
@@ -421,6 +462,13 @@ namespace BarberEric_CE03
                 }
                 winner = BoardCheck ( );
             }
+
+        /*
+            if (playerVsComputerToolStripMenuItem.Checked == true)
+            {
+                CumputerRunO ( );
+            }
+            */
             else
             {
                 if (going == "o")
@@ -450,6 +498,12 @@ namespace BarberEric_CE03
                 }
                 winner = BoardCheck ( );
             }
+            /*
+            if (playerVsComputerToolStripMenuItem.Checked == true)
+            {
+                CumputerRunO ( );
+            }
+            */
             else
             {
                 if (going == "o")
@@ -671,23 +725,45 @@ namespace BarberEric_CE03
 
         private void playerVsComputerToolStripMenuItem_Click ( object sender,EventArgs e )
         {
+            //open a new form if when the user wishes to select against the computer
             Form2 Select = new Form2 ( );
             if (playerVsComputerToolStripMenuItem.Checked == false)
             {
                 playerVsComputerToolStripMenuItem.Checked = true;
                 playerVsPlayerToolStripMenuItem.Checked = false;
+                Select.selection += Select_selection;
+
+                Select.ShowDialog ( );
             }
 
-            Select.selection += Select_selection;
-
-            Select.ShowDialog ( );
+          
 
         }
 
         private void Select_selection ( object sender, Form2.SelectType e )
         {
+            //delegate containing a custom event to get the infroamtion in regards to what the user wants to play as against the cumputer
             PlayerVsComputerSelection = e.type;
         }
 
+        private void exitToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            Application.Exit ( );
+        }
+
+        private void newGameToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            //this resests the score board and clear the board as well
+            score.OWins = 0;
+            score.XWins = 0;
+            ClearBoard ( );
+        }
+
+        private void aboutToolStripMenuItem_Click ( object sender,EventArgs e )
+        {
+            AboutForm infor = new AboutForm ( );
+
+            infor.ShowDialog ( );
+        }
     }
 }
