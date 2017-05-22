@@ -638,6 +638,9 @@ namespace BarberEric_CE03
             return false;
         }
 
+           
+
+
         private bool BoardCheck ( )
         {
 
@@ -658,6 +661,13 @@ namespace BarberEric_CE03
                     ThereWasAwinner ( );
                     return true;
                 }
+                else if (btn1.BackgroundImage != null && btn2.BackgroundImage != null && btn3.BackgroundImage != null && btn4.BackgroundImage != null && btn5.BackgroundImage != null && btn6.BackgroundImage != null && btn7.BackgroundImage != null && btn8.BackgroundImage != null && btn9.BackgroundImage != null)
+                {
+                    MessageBox.Show ( "It is a Tie No winners this round!" );
+                    WhoWon = "T";
+                    ThereWasAwinner ( );
+                    return true;
+                }
                 else
                 {
                     return false;
@@ -670,6 +680,8 @@ namespace BarberEric_CE03
             }
             //This will check to see if O wins in any way there for the game will not continue
 
+
+            
             
 
         }
@@ -709,6 +721,7 @@ namespace BarberEric_CE03
                 score.XWins += 1;
                 Xwins.Value = score.XWins;
             }
+
 
             ClearBoard ( );
 
@@ -754,8 +767,10 @@ namespace BarberEric_CE03
         private void newGameToolStripMenuItem_Click ( object sender,EventArgs e )
         {
             //this resests the score board and clear the board as well
-            score.OWins = 0;
+            score.OWins = 0; 
             score.XWins = 0;
+            Xwins.Value = score.XWins;
+            Owins.Value = score.OWins;
             ClearBoard ( );
         }
 
