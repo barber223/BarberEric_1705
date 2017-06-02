@@ -18,6 +18,7 @@ namespace BarberEric_CE01
         Headers header = new Headers ( );
         string[,] needHeader = new string[100, 100];
 
+        
 
 
         public GroceryList ( )
@@ -117,14 +118,13 @@ namespace BarberEric_CE01
                         string HaveBox = "";
                         string saveString = "";
 
-
-
-
                         // this is adding the items from the need list item area.
 
                         //files.WriteLine ( "*************"+"Need Items"+ "*************\r\n" );
 
-                        pullThenNedHeaderInfo ( );
+                        //pullThenNedHeaderInfo ( );
+
+                        /*
                         int l = 0;
                         for (int i = 0; i < 7; i++)
                         {
@@ -136,6 +136,15 @@ namespace BarberEric_CE01
                             }
                            
                         }
+                        */
+                        header.AssignstringToBeCalled ( );
+
+                        for (int i = 0; i < header.Need.Count; i++)
+                        {
+                            
+                            files.WriteLine ( header.Need[i] );
+                        }
+
                         files.Write ( "\r\n" );
 
                         for (int i = 0; i < listNeed.Items.Count; i++)
@@ -143,7 +152,7 @@ namespace BarberEric_CE01
 
                             if (i == 0 && listNeed.Items != null)
                             {
-                                needBox += listNeed.Items[i]+"\r\n";
+                                needBox += "<"+listNeed.Items[i]+">"+"\r\n";
                             }
                             else if ( i > 0 && i < listNeed.Items.Count - 1)
                             {
@@ -152,6 +161,10 @@ namespace BarberEric_CE01
                             
 
                         }
+                        files.WriteLine ( needBox );
+
+
+
                         string itemToPracticeCauseIFeelLikeIAmStupid = "Have Items";
                         files.WriteLine (($"\r\n*************{itemToPracticeCauseIFeelLikeIAmStupid}*************\r\n" ));
 
@@ -183,8 +196,7 @@ namespace BarberEric_CE01
         private void pullThenNedHeaderInfo ( )
         {
 
-            //needHeader = { { header.A.ToString()}, { header.B.ToString()}, { header.B.ToString()}, { header.} }
-
+            //needHeader = { { header.A.ToString()}, { header.B.ToString()}, { header.B.ToString()}, { header.} } 
             /*
             int l = 0;
             int innderIndex;
