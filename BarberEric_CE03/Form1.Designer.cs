@@ -59,6 +59,7 @@
             this.playerVsComputerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Owins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Xwins)).BeginInit();
@@ -93,6 +94,7 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.Owins);
             this.groupBox1.Controls.Add(this.Xwins);
             this.groupBox1.Controls.Add(this.label2);
@@ -157,9 +159,9 @@
             this.btn9.AllowDrop = true;
             this.btn9.BackColor = System.Drawing.Color.Transparent;
             this.btn9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn9.Location = new System.Drawing.Point(844, 505);
+            this.btn9.Location = new System.Drawing.Point(849, 505);
             this.btn9.Name = "btn9";
-            this.btn9.Size = new System.Drawing.Size(213, 203);
+            this.btn9.Size = new System.Drawing.Size(200, 200);
             this.btn9.TabIndex = 9;
             this.btn9.UseVisualStyleBackColor = false;
             this.btn9.DragDrop += new System.Windows.Forms.DragEventHandler(this.btn9_DragDrop);
@@ -170,9 +172,9 @@
             this.btn8.AllowDrop = true;
             this.btn8.BackColor = System.Drawing.Color.Transparent;
             this.btn8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn8.Location = new System.Drawing.Point(612, 505);
+            this.btn8.Location = new System.Drawing.Point(615, 505);
             this.btn8.Name = "btn8";
-            this.btn8.Size = new System.Drawing.Size(213, 203);
+            this.btn8.Size = new System.Drawing.Size(200, 200);
             this.btn8.TabIndex = 8;
             this.btn8.UseVisualStyleBackColor = false;
             this.btn8.DragDrop += new System.Windows.Forms.DragEventHandler(this.btn8_DragDrop);
@@ -183,9 +185,9 @@
             this.btn7.AllowDrop = true;
             this.btn7.BackColor = System.Drawing.Color.Transparent;
             this.btn7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn7.Location = new System.Drawing.Point(381, 505);
+            this.btn7.Location = new System.Drawing.Point(387, 505);
             this.btn7.Name = "btn7";
-            this.btn7.Size = new System.Drawing.Size(213, 203);
+            this.btn7.Size = new System.Drawing.Size(200, 200);
             this.btn7.TabIndex = 7;
             this.btn7.UseVisualStyleBackColor = false;
             this.btn7.DragDrop += new System.Windows.Forms.DragEventHandler(this.btn7_DragDrop);
@@ -196,9 +198,9 @@
             this.btn6.AllowDrop = true;
             this.btn6.BackColor = System.Drawing.Color.Transparent;
             this.btn6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn6.Location = new System.Drawing.Point(844, 273);
+            this.btn6.Location = new System.Drawing.Point(847, 280);
             this.btn6.Name = "btn6";
-            this.btn6.Size = new System.Drawing.Size(213, 203);
+            this.btn6.Size = new System.Drawing.Size(200, 200);
             this.btn6.TabIndex = 6;
             this.btn6.UseVisualStyleBackColor = false;
             this.btn6.DragDrop += new System.Windows.Forms.DragEventHandler(this.btn6_DragDrop);
@@ -209,9 +211,9 @@
             this.btn5.AllowDrop = true;
             this.btn5.BackColor = System.Drawing.Color.Transparent;
             this.btn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn5.Location = new System.Drawing.Point(612, 273);
+            this.btn5.Location = new System.Drawing.Point(619, 279);
             this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(213, 203);
+            this.btn5.Size = new System.Drawing.Size(200, 200);
             this.btn5.TabIndex = 5;
             this.btn5.UseVisualStyleBackColor = false;
             this.btn5.DragDrop += new System.Windows.Forms.DragEventHandler(this.btn5_DragDrop);
@@ -222,9 +224,9 @@
             this.btn4.AllowDrop = true;
             this.btn4.BackColor = System.Drawing.Color.Transparent;
             this.btn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn4.Location = new System.Drawing.Point(381, 273);
+            this.btn4.Location = new System.Drawing.Point(385, 278);
             this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(213, 203);
+            this.btn4.Size = new System.Drawing.Size(200, 200);
             this.btn4.TabIndex = 4;
             this.btn4.UseVisualStyleBackColor = false;
             this.btn4.DragDrop += new System.Windows.Forms.DragEventHandler(this.btn4_DragDrop);
@@ -235,9 +237,9 @@
             this.btn3.AllowDrop = true;
             this.btn3.BackColor = System.Drawing.Color.Transparent;
             this.btn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn3.Location = new System.Drawing.Point(844, 48);
+            this.btn3.Location = new System.Drawing.Point(848, 51);
             this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(213, 203);
+            this.btn3.Size = new System.Drawing.Size(200, 200);
             this.btn3.TabIndex = 3;
             this.btn3.UseVisualStyleBackColor = false;
             this.btn3.DragDrop += new System.Windows.Forms.DragEventHandler(this.btn3_DragDrop);
@@ -248,9 +250,9 @@
             this.btn2.AllowDrop = true;
             this.btn2.BackColor = System.Drawing.Color.Transparent;
             this.btn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn2.Location = new System.Drawing.Point(612, 48);
+            this.btn2.Location = new System.Drawing.Point(618, 51);
             this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(213, 203);
+            this.btn2.Size = new System.Drawing.Size(200, 200);
             this.btn2.TabIndex = 2;
             this.btn2.UseVisualStyleBackColor = false;
             this.btn2.DragDrop += new System.Windows.Forms.DragEventHandler(this.btn2_DragDrop);
@@ -261,13 +263,14 @@
             this.btn1.AllowDrop = true;
             this.btn1.BackColor = System.Drawing.Color.Transparent;
             this.btn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn1.Location = new System.Drawing.Point(381, 46);
+            this.btn1.Location = new System.Drawing.Point(386, 51);
             this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(213, 203);
+            this.btn1.Size = new System.Drawing.Size(200, 200);
             this.btn1.TabIndex = 0;
             this.btn1.UseVisualStyleBackColor = false;
             this.btn1.DragDrop += new System.Windows.Forms.DragEventHandler(this.btn1_DragDrop);
             this.btn1.DragEnter += new System.Windows.Forms.DragEventHandler(this.btn1_DragEnter);
+          
             // 
             // pictureBox1
             // 
@@ -298,7 +301,7 @@
             // menuStrip2
             // 
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.menuStrip2.Location = new System.Drawing.Point(0, 42);
+            this.menuStrip2.Location = new System.Drawing.Point(0, 40);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(1198, 24);
             this.menuStrip2.TabIndex = 3;
@@ -313,7 +316,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(1198, 42);
+            this.menuStrip3.Size = new System.Drawing.Size(1198, 40);
             this.menuStrip3.TabIndex = 4;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -323,20 +326,20 @@
             this.newGameToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -346,7 +349,7 @@
             this.playerVsPlayerToolStripMenuItem,
             this.playerVsComputerToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(89, 38);
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(89, 36);
             this.gameToolStripMenuItem.Text = "Game";
             // 
             // playerVsPlayerToolStripMenuItem
@@ -372,15 +375,23 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(77, 38);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(77, 36);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 38);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(466, 142);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 25);
+            this.label3.TabIndex = 15;
             // 
             // Form1
             // 
@@ -396,6 +407,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Owins)).EndInit();
@@ -439,6 +451,7 @@
         private System.Windows.Forms.ToolStripMenuItem playerVsComputerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
     }
 }
 

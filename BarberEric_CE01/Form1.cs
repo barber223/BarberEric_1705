@@ -14,7 +14,10 @@ namespace BarberEric_CE01
     public partial class GroceryList : Form
     {
         int index = -1;
-     
+
+        Headers header = new Headers ( );
+        string[,] needHeader = new string[100, 100];
+
 
 
         public GroceryList ( )
@@ -24,8 +27,11 @@ namespace BarberEric_CE01
 
         private void btnAdd_Click ( object sender,EventArgs e )
         {
-          listNeed.Items.Add ( txtItem.Text);
-            txtItem.Clear ( );
+            if (!string.IsNullOrEmpty ( txtItem.Text ))
+            {
+                listNeed.Items.Add ( txtItem.Text );
+                txtItem.Clear ( );
+            }
         }
 
         private void btnMove_Click ( object sender,EventArgs e )
@@ -111,17 +117,45 @@ namespace BarberEric_CE01
                         string HaveBox = "";
                         string saveString = "";
 
-                        for (int i = 0; i < listNeed.Items.Count; i++)
+
+
+
+                        // this is adding the items from the need list item area.
+
+                        //files.WriteLine ( "*************"+"Need Items"+ "*************\r\n" );
+
+                        pullThenNedHeaderInfo ( );
+                        int l = 0;
+                        for (int i = 0; i < 7; i++)
                         {
-                            if (i < listNeed.Items.Count-1)
+                            for (int k = 0; k < 100; k++)
                             {
-                                needBox += ($"{listNeed.Items[i]}|");
+                                if (needHeader[i,k].cou)
+                                files.Write ( needHeader[i,k] );
+
                             }
-                            else if (i == listNeed.Items.Count-1)
-                            {
-                                needBox += ($"{listNeed.Items[i]}");
-                            }
+                           
                         }
+                        files.Write ( "\r\n" );
+
+                        for (int i = 0; i < listNeed.Items.Count; i++)
+                              {
+
+                            if (i == 0 && listNeed.Items != null)
+                            {
+                                needBox += listNeed.Items[i]+"\r\n";
+                            }
+                            else if ( i > 0 && i < listNeed.Items.Count - 1)
+                            {
+                                needBox += "<"+listNeed.Items[i] + ">\r\n";
+                            }
+                            
+
+                        }
+                        string itemToPracticeCauseIFeelLikeIAmStupid = "Have Items";
+                        files.WriteLine (($"\r\n*************{itemToPracticeCauseIFeelLikeIAmStupid}*************\r\n" ));
+
+
                         for (int i = 0; i < listHave.Items.Count; i++)
                         {
                             if (i < listHave.Items.Count-1)
@@ -134,7 +168,7 @@ namespace BarberEric_CE01
                             }
                         }
 
-                        saveString = needBox + "#" + HaveBox;
+                        
 
 
 
@@ -143,6 +177,48 @@ namespace BarberEric_CE01
                     myStream.Close ( ); // Closes the file
                 }
             }
+        }
+
+
+        private void pullThenNedHeaderInfo ( )
+        {
+
+            //needHeader = { { header.A.ToString()}, { header.B.ToString()}, { header.B.ToString()}, { header.} }
+
+            /*
+            int l = 0;
+            int innderIndex;
+            string[] firstPlace = new string[] {"A"+"B"+"C"+"D"+"E"+"F"+"G" };
+            string placeholder = "";
+            header.AssignstringToBeCalled ( );
+
+
+            for (int i = 0; i < header.Need.Count(); i++)
+            {
+                while (l < header.Need[i].Count ( ))
+                {
+                    int.TryParse ( header.Need[i][l].ToString ( ),out innderIndex );
+
+                    needHeader[i,l] = header.Need[i][l].ToString ( );
+
+                    /*
+                    for (int k = 0; k< header.Need[i].Length; k++)
+                    {
+                        string placeholder = header.Need[i][k].ToString ( );
+
+                        int.TryParse ( header.Need[i][k].ToString ( ) , out innderIndex);
+
+
+                        needHeader[i,innderIndex] = header.Need[i][k].ToString ( );
+                        l++;
+                    }
+                    
+                    l++;
+                }
+                
+                l = 0;
+            }
+            */
         }
     }
 }

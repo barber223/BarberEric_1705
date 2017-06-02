@@ -28,8 +28,11 @@ namespace BarberEric_CE03
 
         string[,] TheBoard = new string[3, 3];
         string going = "";
+        bool Dragging = false;
 
         public string PlayerVsComputerSelection = "";
+
+
 
 
         private void btn1_DragEnter ( object sender,DragEventArgs e )
@@ -60,6 +63,7 @@ namespace BarberEric_CE03
             }
 
         }
+
         /*
         private void CumputerRunO ( )
         {
@@ -132,8 +136,6 @@ namespace BarberEric_CE03
         }
         */
        
-
-
         private void btnX_MouseDown ( object sender,MouseEventArgs e )
         {
             //This will check to see if there is a winner befor each play and if there is a winner it will kick them befor there allowed to continue player.
@@ -141,9 +143,11 @@ namespace BarberEric_CE03
             {
                 if (going == "" || going == "o" && winner == false)
                 {
-                    going = "x";
+                    Dragging = true;
                     btnX.DoDragDrop ( btnX.Text,DragDropEffects.Copy |
                    DragDropEffects.Move );
+                    going = "x";
+                    
                 }
 
                 else if (going == "x")
@@ -159,9 +163,10 @@ namespace BarberEric_CE03
 
                 if (going == "" || going == "o" && winner == false)
                 {
-                    going = "x";
+                    
                     btnX.DoDragDrop ( btnX.Text,DragDropEffects.Copy |
                    DragDropEffects.Move );
+                    going = "x";
                 }
                 //MessageBox.Show ( "Working" );
                 
@@ -174,16 +179,19 @@ namespace BarberEric_CE03
 
 
         } 
+
         private void btnO_MouseDown ( object sender,MouseEventArgs e )
         {
+           
             //This will check to see if there is a winner befor each play and if there is a winner it will kick them befor there allowed to continue player.
             if (playerVsPlayerToolStripMenuItem.Checked == true)
             {
                 if (going == "" || going == "x" && winner == false)
                 {
-                    going = "o";
+                    Dragging = true;
                     btnO.DoDragDrop ( btnO.Text,DragDropEffects.Copy |
                   DragDropEffects.Move );
+                    going = "o";
                 }
 
                 else if (going == "o")
@@ -200,20 +208,22 @@ namespace BarberEric_CE03
 
         }
         
-        
-
         private void btn1_DragDrop ( object sender,DragEventArgs e )
-        {if (btn1.BackgroundImage == null)
+        {
+       
+            if (btn1.BackgroundImage == null )
             {
                 if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "x")
                 {
                     btn1.BackgroundImage = imageList1.Images[0];
                     TheBoard[0,0] = "x";
+                    //going = "o";
                 }
                 else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn1.BackgroundImage = imageList1.Images[1];
                     TheBoard[0,0] = "o";
+                    //going = "x";
                 }
                 winner = BoardCheck ( );
                 /*
@@ -244,11 +254,13 @@ namespace BarberEric_CE03
                 {
                     btn2.BackgroundImage = imageList1.Images[0];
                     TheBoard[1,0] = "x";
+                    //going = "o";
                 }
                 else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn2.BackgroundImage = imageList1.Images[1];
                     TheBoard[1,0] = "o";
+                   // going = "x";
                 }
                 winner = BoardCheck ( );
                 /*
@@ -278,12 +290,14 @@ namespace BarberEric_CE03
             {
                 btn3.BackgroundImage = imageList1.Images[0];
                     TheBoard[2,0] = "x";
-            }
+                    //going = "o";
+                }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
             {
                 btn3.BackgroundImage = imageList1.Images[1];
                     TheBoard[2,0] = "o";
-            }
+                    //going = "x";
+                }
                 winner = BoardCheck ( );
             }
         /*
@@ -314,11 +328,13 @@ namespace BarberEric_CE03
             {
                 btn4.BackgroundImage = imageList1.Images[0];
                     TheBoard[0,1] = "x";
+                    //going = "o";
             }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
             {
                 btn4.BackgroundImage = imageList1.Images[1];
                     TheBoard[0,1] = "o";
+                    //going = "x";
             }
                 winner = BoardCheck ( );
             }
@@ -349,12 +365,14 @@ namespace BarberEric_CE03
             {
                 btn5.BackgroundImage = imageList1.Images[0];
                     TheBoard[1,1] = "x";
-            }
+                    //going = "o";
+                }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
             {
                 btn5.BackgroundImage = imageList1.Images[1];
                     TheBoard[1,1] = "o";
-            }
+                    //going = "o";
+                }
                 winner = BoardCheck ( );
             }
             /*
@@ -384,12 +402,14 @@ namespace BarberEric_CE03
             {
                 btn6.BackgroundImage = imageList1.Images[0];
                     TheBoard[2,1] = "x";
-            }
+                    //going = "o";
+                }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
             {
                 btn6.BackgroundImage = imageList1.Images[1];
                     TheBoard[2,1] = "o";
-            }
+                    //going = "x";
+                }
                 winner = BoardCheck ( );
             }
         /*
@@ -419,11 +439,13 @@ namespace BarberEric_CE03
                 {
                     btn7.BackgroundImage = imageList1.Images[0];
                     TheBoard[0,2] = "x";
+                   // going = "o";
                 }
                 else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn7.BackgroundImage = imageList1.Images[1];
                     TheBoard[0,2] = "o";
+                    //going = "x";
                 }
                 winner = BoardCheck ( );
             }
@@ -454,11 +476,13 @@ namespace BarberEric_CE03
                 {
                     btn8.BackgroundImage = imageList1.Images[0];
                     TheBoard[1,2] = "x";
+                    //going = "o";
                 }
                 else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn8.BackgroundImage = imageList1.Images[1];
                     TheBoard[1,2] = "o";
+                   // going = "x";
                 }
                 winner = BoardCheck ( );
             }
@@ -490,11 +514,13 @@ namespace BarberEric_CE03
             {
                     btn9.BackgroundImage = imageList1.Images[0];
                     TheBoard[2,2] = "x";
+                   // going = "o";
                 }
             else if (e.Data.GetData ( DataFormats.Text ).ToString ( ) == "o")
                 {
                     btn9.BackgroundImage = imageList1.Images[1];
                     TheBoard[2,2] = "o";
+                   // going = "x";
                 }
                 winner = BoardCheck ( );
             }
@@ -638,9 +664,6 @@ namespace BarberEric_CE03
             return false;
         }
 
-           
-
-
         private bool BoardCheck ( )
         {
 
@@ -779,6 +802,33 @@ namespace BarberEric_CE03
             AboutForm infor = new AboutForm ( );
 
             infor.ShowDialog ( );
+        }
+
+
+
+        
+
+        private void Form1_MouseUp ( object sender,MouseEventArgs e )
+        {
+            int btn1LocationLeft = btn1.Left;
+            int btn1LocationRight = btn1.Right;
+            int btn2LocationLeft = btn2.Left;
+            /*
+            int btn3Location;
+            int btn4Location;
+            int btn5Location;
+            int btn6Location;
+            int btn7Location;
+            int btn8Location;
+            int btn9Location;
+            */
+            // if ( e.Location.X >= btn1LocationLeft < 200
+           if( e.Location != btn1.Location)
+            {
+                MessageBox.Show ( "fuck" );
+            }
+            
+
         }
     }
 }

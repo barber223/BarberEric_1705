@@ -32,6 +32,7 @@ namespace BarberEric_CE02
         public Form1 ( )
         {
             InitializeComponent ( );
+            groupBox1.Visible = false;
         }
 
         private void exitToolStripMenuItem_Click ( object sender,EventArgs e )
@@ -401,5 +402,7 @@ namespace BarberEric_CE02
                 }
             }
         }
+
+
     }
 }

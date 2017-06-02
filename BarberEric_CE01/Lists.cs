@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BarberEric_CE03
+namespace BarberEric_CE01
 {
-    public partial class AboutForm : Form
+    public partial class Lists : Form
     {
-        public AboutForm ( )
+        public Lists ( )
         {
             InitializeComponent ( );
         }
-
     }
 }

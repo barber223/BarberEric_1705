@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BarberEric_CE03
+namespace BarberEric_CE02
 {
-    public partial class AboutForm : Form
+    public partial class ContactAdd : Form
     {
-        public AboutForm ( )
+        public ContactAdd ( )
         {
             InitializeComponent ( );
         }

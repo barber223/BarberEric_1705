@@ -62,6 +62,8 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.largeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Contacts = new System.Windows.Forms.ListBox();
+            this.btnAddPage = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,10 +92,9 @@
             this.groupBox1.Controls.Add(this.lblLast);
             this.groupBox1.Controls.Add(this.lblfirst);
             this.groupBox1.Controls.Add(this.lvUsers);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 50);
+            this.groupBox1.Location = new System.Drawing.Point(12, 1219);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1126, 500);
+            this.groupBox1.Size = new System.Drawing.Size(750, 1334);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users:";
@@ -250,7 +251,7 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(153, 152);
+            this.txtLastName.Location = new System.Drawing.Point(153, 149);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(312, 31);
             this.txtLastName.TabIndex = 6;
@@ -331,7 +332,7 @@
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1126, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(724, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -386,11 +387,31 @@
             this.smallToolStripMenuItem.Text = "Small";
             this.smallToolStripMenuItem.Click += new System.EventHandler(this.smallToolStripMenuItem_Click);
             // 
+            // Contacts
+            // 
+            this.Contacts.FormattingEnabled = true;
+            this.Contacts.ItemHeight = 25;
+            this.Contacts.Location = new System.Drawing.Point(5, 48);
+            this.Contacts.Name = "Contacts";
+            this.Contacts.Size = new System.Drawing.Size(718, 1204);
+            this.Contacts.TabIndex = 2;
+            // 
+            // btnAddPage
+            // 
+            this.btnAddPage.Location = new System.Drawing.Point(8, 1064);
+            this.btnAddPage.Name = "btnAddPage";
+            this.btnAddPage.Size = new System.Drawing.Size(342, 187);
+            this.btnAddPage.TabIndex = 3;
+            this.btnAddPage.Text = "Add";
+            this.btnAddPage.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 550);
+            this.ClientSize = new System.Drawing.Size(724, 1263);
+            this.Controls.Add(this.btnAddPage);
+            this.Controls.Add(this.Contacts);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -439,6 +460,8 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem largeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem smallToolStripMenuItem;
+        private System.Windows.Forms.ListBox Contacts;
+        private System.Windows.Forms.Button btnAddPage;
     }
 }
 

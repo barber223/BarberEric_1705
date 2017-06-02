@@ -33,8 +33,10 @@
             // 
             // listBox1
             // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
+            this.listBox1.ItemHeight = 33;
             this.listBox1.Items.AddRange(new object[] {
             "About the game",
             "    The game of tic tack toe id an extremely complex game where it requires",
@@ -58,14 +60,14 @@
             "vs. computer is a paid option so it is not visible to users as at this time."});
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(876, 454);
+            this.listBox1.Size = new System.Drawing.Size(1218, 811);
             this.listBox1.TabIndex = 0;
             // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 473);
+            this.ClientSize = new System.Drawing.Size(1218, 811);
             this.Controls.Add(this.listBox1);
             this.Name = "AboutForm";
             this.Text = "AboutForm";
