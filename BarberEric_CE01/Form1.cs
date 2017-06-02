@@ -118,6 +118,10 @@ namespace BarberEric_CE01
                         string HaveBox = "";
                         string saveString = "";
 
+
+                        /*
+                        The comemnted out blocks of code was me trying to figure out how to pull the information in a more unisen way with the use of a 2-d array.
+                        */
                         // this is adding the items from the need list item area.
 
                         //files.WriteLine ( "*************"+"Need Items"+ "*************\r\n" );
@@ -137,55 +141,56 @@ namespace BarberEric_CE01
                            
                         }
                         */
-                        header.AssignstringToBeCalled ( );
+                        header.AssignstringToBeCalled ("need" );
 
-                        for (int i = 0; i < header.Need.Count; i++)
+
+                        for (int i = 0; i < header.FullArray.Count; i++)
                         {
                             
-                            files.WriteLine ( header.Need[i] );
+                            files.WriteLine ( header.FullArray[i] );
                         }
-
+                        files.WriteLine ( "***********************************************************************************************" );
+                            files.WriteLine ( "" );
                         files.Write ( "\r\n" );
 
                         for (int i = 0; i < listNeed.Items.Count; i++)
-                              {
-
-                            if (i == 0 && listNeed.Items != null)
-                            {
+                              { 
                                 needBox += "<"+listNeed.Items[i]+">"+"\r\n";
                             }
-                            else if ( i > 0 && i < listNeed.Items.Count - 1)
-                            {
-                                needBox += "<"+listNeed.Items[i] + ">\r\n";
-                            }
-                            
+                            files.WriteLine ( needBox );
 
-                        }
-                        files.WriteLine ( needBox );
-
-
-
-                        string itemToPracticeCauseIFeelLikeIAmStupid = "Have Items";
-                        files.WriteLine (($"\r\n*************{itemToPracticeCauseIFeelLikeIAmStupid}*************\r\n" ));
-
-
-                        for (int i = 0; i < listHave.Items.Count; i++)
-                        {
-                            if (i < listHave.Items.Count-1)
-                            {
-                                HaveBox += ($"{listHave.Items[i]}|");
-                            }
-                            else if (i == listHave.Items.Count-1) 
-                            {
-                                HaveBox += ($"{listHave.Items[i]}");
-                            }
-                        }
-
+                        
                         
 
 
 
-                        files.Write ( saveString );
+                        // string itemToPracticeCauseIFeelLikeIAmStupid = "Have Items";
+                        //files.WriteLine (($"\r\n*************{itemToPracticeCauseIFeelLikeIAmStupid}*************\r\n" ));
+
+                        //this gives is a header for the second section of have coloum
+                        header.AssignstringToBeCalled ( "have" );
+                        
+                        for (int i = 0; i < header.FullArray.Count; i++)
+                        {
+
+                            files.WriteLine ( header.FullArray[i] );
+                        }
+                        files.WriteLine ( "***********************************************************************************************" );
+                        files.Write ( "\r\n" );
+
+
+
+
+                        for (int i = 0; i < listHave.Items.Count; i++)
+                        {
+                            HaveBox += ("<" + listHave.Items[i] + ">\r\n");
+                        }
+
+                        files.WriteLine ( HaveBox );
+
+
+
+                        
                     }
                     myStream.Close ( ); // Closes the file
                 }

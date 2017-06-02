@@ -8,26 +8,50 @@ namespace BarberEric_CE01
 {
     class Headers
     {
-        
-        string a = ">==>    >=>                         >=>       >=>   >=>                                   ";
-        string b = ">> >=>  >=>                         >=>       >=>   >=>                                   ";
-        string c = ">=> >=> >=>   >==>      >==>        >=>       >=> >=>>==>   >==>    >===>>=>>==>   >===>  ";
-        string d = ">=>  >=>>=> >>   >=>  >>   >=>   >=>>=>       >=>   >=>   >>   >=>   >=>  >>  >=> >=>     ";
-        string e = ">=>   > >=> >>===>>=> >>===>>=> >>  >=>       >=>   >=>   >>===>>=>  >=>  >>  >=>   >==>  ";
-        string f = ">=>    >>=> >>        >>        >>  >=>       >=>   >=>   >>         >=>  >>  >=>     >=> ";
-        string g = ">=>     >=>  >====>    >====>    >=>>=>       >=>    >=>   >====>   >==>  >>  >=> >=> >=> ";
+        string a = "";
+        string b = "";
+        string c = "";
+        string d = "";
+        string e = "";
+        string f = "";
+        string g = "";
 
-        List<string> needArray = new List<string>( );
-        
-        public List<string> Need
+
+
+        private void PopulateNeedHeader ( )
+        {
+            FullArray.Clear ( );
+            a = ">==>    >=>                         >=>       >=>   >=>                                   ";
+            b = ">> >=>  >=>                         >=>       >=>   >=>                                   ";
+            c = ">=> >=> >=>   >==>      >==>        >=>       >=> >=>>==>   >==>    >===>>=>>==>   >===>  ";
+            d = ">=>  >=>>=> >>   >=>  >>   >=>   >=>>=>       >=>   >=>   >>   >=>   >=>  >>  >=> >=>     ";
+            e = ">=>   > >=> >>===>>=> >>===>>=> >>  >=>       >=>   >=>   >>===>>=>  >=>  >>  >=>   >==>  ";
+            f = ">=>    >>=> >>        >>        >>  >=>       >=>   >=>   >>         >=>  >>  >=>     >=> ";
+            g = ">=>     >=>  >====>    >====>    >=>>=>       >=>    >=>   >====>   >==>  >>  >=> >=> >=> ";
+        }
+        List<string> fullArray = new List<string>( );
+       private void populateHaveHeader ( )
+        {
+            FullArray.Clear ( );
+
+            a = ">=>    >=>                                         >=>   >=>                                   ";
+            b = ">=>    >=>                                         >=>   >=>                                   ";
+            c = ">=>    >=>    >=> >=>  >=>     >=>   >==>          >=> >=>>==>   >==>    >===>>=>>==>   >===>  ";
+            d = ">=====>>=>  >=>   >=>   >=>   >=>  >>   >=>        >=>   >=>   >>   >=>   >=>  >>  >=> >=>     ";
+            e = ">=>    >=> >=>    >=>    >=> >=>   >>===>>=>       >=>   >=>   >>===>>=>  >=>  >>  >=>   >==>  ";
+            f = ">=>    >=>  >=>   >=>     >=>=>    >>              >=>   >=>   >>         >=>  >>  >=>     >=> ";
+            g = ">=>    >=>   >==>>>==>     >=>      >====>         >=>    >=>   >====>   >==>  >>  >=> >=> >=> ";
+        }
+
+        public List<string> FullArray
         {
             get
             {
-                return needArray;
+                return fullArray;
             }
             set
             {
-                needArray = value;
+                fullArray = value;
             }
         }
 
@@ -88,15 +112,23 @@ namespace BarberEric_CE01
             }
         }
 
-        public void AssignstringToBeCalled ( )
+        public void AssignstringToBeCalled (string whichHeader )
         {
-            Need.Add ( A );
-            Need.Add ( B );
-            Need.Add ( C );
-            Need.Add ( D );
-            Need.Add ( E );
-            Need.Add ( F );
-            Need.Add ( G );   
+            if (whichHeader == "have")
+            {
+                populateHaveHeader ( );
+            }
+            else if (whichHeader == "need")
+            {
+                PopulateNeedHeader ( );
+            }
+            FullArray.Add ( A );
+            FullArray.Add ( B );
+            FullArray.Add ( C );
+            FullArray.Add ( D );
+            FullArray.Add ( E );
+            FullArray.Add ( F );
+            FullArray.Add ( G );   
         }
     }
 }
